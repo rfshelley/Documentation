@@ -487,6 +487,8 @@ You should see the switch should go on:
 
 ----
 
+.. _publish-install-smartapp:
+
 Publishing and Installing
 -------------------------
 

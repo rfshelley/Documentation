@@ -4,10 +4,23 @@
 Latest Updates
 ==============
 
+February 08 2017
+----------------
+
+- Z-Wave fingerprinting updates! The :ref:`zwave-fingerprinting` documentation has been expanded and updated with the latest information.
+- Get information about a Device's status and last activity using the new :ref:`device_get_status` and :ref:`device_get_last_activity` methods.
+- New to Device Handler development, or looking for a refresher? We've overhauled our :ref:`device-handler-quickstart` to ensure you can get up and running quickly and pain-free.
+- Do you use cron to create recurring schedules? Have you seen if you could replace that often-difficult to understand, write, and maintain cron expression with any of our :ref:`runEvery* <schedule_run_every>` methods? We've updated the :ref:`documentation <scheduling_recurring_schedules>` to highlight these methods and encourage their use, instead of using cron.
+- Did you know you can copy code examples right to your clipboard? We updated the UX to increase the visibility of this handy feature.
+
+`GitHub Release Tag <https://github.com/SmartThingsCommunity/Documentation/releases/tag/08-February-2017>`__
+
+----
+
 January 23 2017
 ---------------
 
-- While using the ``HubAction`` class is discussed is the :ref:`LAN Device Handler Guide <lan_device_handler_guide>`, there was no reference documentation available for it. We've addressed that by adding a :ref:`new reference document for HubAction! <hubaction_ref>`
+- Search, discover and communicate with the devices in your network with the ``HubAction`` class. Check out the :ref:`new reference document for HubAction <hubaction_ref>`.
 - If you need to get the account ID associated with an installed SmartApp, check out the :ref:`isa_ref_get_account_id` method available on the :ref:`installed_smart_app_wrapper` object!
 - We've updated the :ref:`editor_and_simulator` guide to clarify that you need to ensure you are on the correct shard when creating SmartApps or Device Handlers.
 - A new Capability, :ref:`infraredLevel`, is now available!
