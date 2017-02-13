@@ -149,7 +149,7 @@ Get the headers of the response.
 
 **Returns:**
     `Map`_ < `String`_ , `String`_ > - A map of response headers keyed by the header name.
-    
+
 **Example:**
 
 .. code-block:: groovy
@@ -280,7 +280,7 @@ hasError()
 ----------
 
 Return if the request has an error of some sort.
-This will be ``true`` if the request succeeded with a 2XX response code, and ``false`` if the request failed to complete or returned a non-2XX status code.
+This will be ``true`` if the request failed to complete or returned a non-2XX status code, and ``false`` if the request succeeded with a 2XX status code.
 
 **Signature:**
     ``boolean hasError()``
