@@ -28,7 +28,7 @@ The Parent SmartApp
 -------------------
 
 To define that a SmartApp is a parent to other SmartApps, use the ``app`` input element inside the ``preferences``.
-This establishes the relationship between parent and child.
+The ``app`` input allows the user to install and edit child SmartApp instances, and establishes the relationship between parent and child.
 
 .. code-block:: groovy
 
@@ -40,7 +40,19 @@ This establishes the relationship between parent and child.
         }
     }
 
-The key options to note are the ``appName``, which must be the name of the child SmartApp, and the ``namespace``, which is the namespace of the child SmartApp.
+All child SmartApps installed via the ``app`` input will then be listed in the parent SmartApp preferences page, and the user can then edit or remove those instances.
+
+The options for the ``app`` input are:
+
+========= ===========
+Option    Description
+========= ===========
+name      The name of the input. Serves as the identifier for this input element.
+appName   The name of the child SmartApp, as defined in the definition metadata of the child.
+namespace The namespace of the child SmartApp, as defined in the definition metadata of the child.
+title     The title of the button the user can press to install a new instance of this child SmartApp
+multiple  If ``true``, the user can install multiple child SmartApps. If ``false``, only one may be installed. Defaults to ``false``.
+========= ===========
 
 ----
 
