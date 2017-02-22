@@ -61,6 +61,7 @@ When appropriate, we have included various tips or warnings. In cases where an A
    async-response-ref
    attribute-ref
    capability-ref
+   color-utils-ref
    command-ref
    device-ref
    event-ref

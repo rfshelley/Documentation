@@ -577,6 +577,21 @@ Returns a list of all child devices. An example use would be in service manager 
 
 ----
 
+.. _smartapp_ref_get_color_util:
+
+getColorUtil()
+--------------
+
+Returns the :ref:`color_util_ref` object.
+
+**Signature:**
+    ``ColorUtilities getColorUtil()``
+
+**Returns:**
+    :ref:`color_util_ref`
+
+----
+
 .. _smartapp_getlocation:
 
 getLocation()
@@ -1691,9 +1706,9 @@ Sends a command to the Hub, with the details of the command encapsulated within 
     ``void sendHubCommand(List<HubAction> actions, delay)``
 
 **Parameters:**
-    ``HubAction action`` - A HubAction object 
-    
-    ``List<HubAction> actions`` - A list of HubAction objects 
+    ``HubAction action`` - A HubAction object
+
+    ``List<HubAction> actions`` - A list of HubAction objects
 
 
     ``delay`` - An integer number representing milliseconds. This is the delay between commands when a list of HubAction objects are sent using ``List<HubAction> actions`` parameter. The default value of delay is 1000.
@@ -1705,7 +1720,7 @@ Sends a command to the Hub, with the details of the command encapsulated within 
     During the discovery phase of a LAN-connected device the following discovery command can be sent to the Hub.
 
 .. code-block:: groovy
-    
+
     // Send a single HubAction command to the Hub
     void ssdpDiscover() {
         sendHubCommand(new physicalgraph.device.HubAction("lan discovery urn:schemas-upnp-org:device:ZonePlayer:1", physicalgraph.device.Protocol.LAN))
@@ -1718,7 +1733,7 @@ Sends a command to the Hub, with the details of the command encapsulated within 
         actions.add(new physicalgraph.device.HubAction("lan discovery urn:samsung.com:device:RemoteControlReceiver:1", physicalgraph.device.Protocol.LAN))
         sendHubCommand(actions, 3000)
     }
-    
+
 ----
 
 sendLocationEvent()

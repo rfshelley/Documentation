@@ -563,6 +563,21 @@ Returns the URL of the server where this Device Handler can be reached for API c
 
 ----
 
+.. _device_handler_ref_get_color_util:
+
+getColorUtil()
+--------------
+
+Returns the :ref:`color_util_ref` object.
+
+**Signature:**
+    ``ColorUtilities getColorUtil()``
+
+**Returns:**
+    :ref:`color_util_ref`
+
+----
+
 httpDelete()
 ------------
 
