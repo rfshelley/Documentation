@@ -1,12 +1,100 @@
-================
-Writing the Docs
-================
+.. _style_guide:
 
-This document outlines how this documentation should be formatted.
+===================
+Writing Style Guide
+===================
+
+When you write for SmartThings platform, your audience should find your documentation readable, interesting and informative.
+To accomplish these goals, we encourage you to stick to our recommended writing style. 
 
 ----
 
-Page Structure
+Titles and headings
+-------------------
+
+Wherever possible, write purpose-driven documentation. 
+This means writing document titles and section headings that state the benefit explicitly. 
+Such titles or headings can be written as either calls to actions or tasks that can be done. 
+This approach makes it easier for the reader to learn how to get her job done. 
+
+**Examples:** 
+
+- Preferred: Writing Your First SmartApp (document title)
+- Avoid: SmartApp Fundamentals (document title isn't purpose-driven)
+- Preferred: Create your own RESTful API (section heading)
+- Avoid: Parent-child SmartApps (document title isn't purpose-driven)
+- Preferred: Combine Multiple Automations (document title)
+
+.. note::
+
+    - A **document title** is the main title of a document page. A document has only one document title. Example: "Writing Style Guide" at the beginning of this page. The document title also appears at the top level in the navigation bar, so it must be short, preferably four to five words or less. 
+    - A **section heading** is the title for an individual section within a document page. Example: "Titles and headings" at the top of this section. A document page can have multiple sections, and hence multiple section headings. 
+
+Avoid framing as questions
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Avoid using questions in document titles and section headings. 
+
+**Example:** 
+
+- Avoid: How does the switch turn on?
+- Preferred: How the switch turns on (section heading)
+
+Avoid italics (emphasis)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Avoid using emphasis (italics) in document titles or section headings.
+See :ref:`page_structure`.
+
+----
+
+Document titles
+^^^^^^^^^^^^^^^
+
+Use title case, as in “Document Titles” and not “Document titles.” 
+
+**Example:**
+
+- The title of this document, "Writing Style Guide."
+
+What not to capitalize in title
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- as (SmartApp as a Wakeup Device)
+- to (How to Subscribe to Events)
+- on (Trigger on Time)
+- at (Alarm at a Specific Time)
+- of, the (No More Rules of the Game)
+- in (Your First SmartApp in Five Minutes)
+- the (Motion at the Garage Door)
+- a (Three Critical Triggers in a Day)
+- for (Temperature Control for Basement)
+
+What to capitalize in title
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- is (Device Health Is Reported Weekly)
+- was (Motion Was Detected)
+- then (Set a Sunrise Automation, Then Sit Back)
+- up (Biff Stood Up to Trigger the Alarm)
+- that (The Battery That Lasts Forever)
+- with (The Day Ends With Cheers All Around)
+
+Section headings
+^^^^^^^^^^^^^^^^
+
+Use sentence case, as in “Subscription management,” and not the title case, as in “Subscription Management.” 
+
+.. note::
+
+    - A **sentence case** is where you only capitalize the first letter of the sentence. 
+    - A **title case** is where you capitalize first letter of every word of the sentence. 
+
+----
+
+.. _page_structure:
+
+Page structure
 --------------
 
 Each document should be named with a ``.rst`` file extension.
@@ -43,7 +131,9 @@ The structure should look like this:
 
     Subsection text.
 
-Page Title
+
+
+Page title
 ^^^^^^^^^^
 
 Page titles appear at the top of the document, and have a row of ``===`` characters above and below.
@@ -59,19 +149,19 @@ Headings
 ^^^^^^^^
 
 Top-level section headings are followed by a row of ``---`` characters.
-They should also have title capitalization:
+They should have sentence capitalization:
 
 .. code-block:: rst
 
-    This is a Section
+    This is a section
     -----------------
 
 Subsection headings are followed by a row of ``^^`` characters.
-Only the first word of a subsection title should be capitalized.
+They should have sentence capitalization.
 
 .. code-block:: rst
 
-    This is a Section
+    This is a section
     -----------------
 
     This is a subsection
@@ -84,7 +174,7 @@ Only the first word of a subsection title should be capitalized.
 
 ----
 
-reStructuredText Syntax
+reStructuredText syntax
 -----------------------
 
 Links
@@ -100,12 +190,12 @@ Links to sections within the document can be included like this:
 
 .. code-block:: rst
 
-    Section Name
+    Section name
     ------------
 
-    See `Other Section`_ for more information.
+    See `Other section`_ for more information.
 
-    Other Section
+    Other section
     -------------
 
 The ``:ref:`` target allows us to link to other documents or document sections.
@@ -115,10 +205,10 @@ It requires placing a label above a section, title, or image:
 
     .. _section_label:
 
-    Some Section
+    Some section
     ------------
 
-Another document can then link to ``Some Section`` like this:
+Another document can then link to ``Some section`` like this:
 
 .. code-block:: rst
 
@@ -148,7 +238,7 @@ Unordered lists use a ``-`` or ``*`` character:
     - First bullet
     - Second bullet
 
-Inline Markup
+Inline markup
 ^^^^^^^^^^^^^
 
 - Surround text with \* for *italics text*.
@@ -158,7 +248,7 @@ Inline Markup
 When referring to method calls in the documentation, place ``()`` after the method name: ``methodName()``.
 This helps distinguish methods from other code literals.
 
-Code Examples
+Code examples
 ^^^^^^^^^^^^^
 
 Code blocks can be included using the ``code-block`` directive.
@@ -297,8 +387,8 @@ Which results in:
 
 ----
 
-Writing Style and Miscellaneous Tips
-------------------------------------
+Miscellaneous tips
+------------------
 
 - Spell check before committing.
 - Show, don't tell - include example code.
@@ -307,7 +397,7 @@ Writing Style and Miscellaneous Tips
 
 ----
 
-Further Reading
+Further reading
 ---------------
 
 - `Sphinx documentation <http://sphinx-doc.org/contents.html>`_
