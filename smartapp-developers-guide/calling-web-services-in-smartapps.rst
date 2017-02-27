@@ -9,7 +9,7 @@ The various APIs are named for the underlying HTTP method they will use. ``httpG
 
 .. note::
 
-    The APIs discussed here are executed synchrously, within a single SmartApp or Device Handler execution.
+    The APIs discussed here are executed synchronously, within a single SmartApp or Device Handler execution.
 
     For information on making asynchronous HTTP requests, check out the :doc:`async-http` documentation.
 
