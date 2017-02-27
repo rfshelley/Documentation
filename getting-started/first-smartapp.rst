@@ -417,7 +417,7 @@ Now that we know motion has been detected, we need to turn the light on!
 Controlling Devices
 -------------------
 
-Recall that capabilities support commands (things the device can do), as well as attributes (things the attribute knows).
+Recall that capabilities support commands (things the device can do), as well as attributes (things the device knows).
 To turn the switch on requires only one line of code to be added to our event handler:
 
 .. code-block:: groovy
