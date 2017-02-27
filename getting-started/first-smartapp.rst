@@ -688,16 +688,16 @@ Update your SmartApp with the code below:
     	def motionState = themotion.currentState("motion")
 
         if (motionState.value == "inactive") {
-    		// get the time elapsed between now and when the motion reported inactive
+            // get the time elapsed between now and when the motion reported inactive
             def elapsed = now() - motionState.date.time
 
             // elapsed time is in milliseconds, so the threshold must be converted to milliseconds too
             def threshold = 1000 * 60 * minutes
 
-    		if (elapsed >= threshold) {
+            if (elapsed >= threshold) {
                 log.debug "Motion has stayed inactive long enough since last check ($elapsed ms):  turning switch off"
                 theswitch.off()
-        	} else {
+            } else {
             	log.debug "Motion has not stayed inactive long enough since last check ($elapsed ms):  doing nothing"
             }
         } else {
