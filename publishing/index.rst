@@ -8,14 +8,14 @@ Publishing for distribution requires you to submit your SmartApp or Device Handl
 
 .. _publishing-for-yourself:
 
-For Yourself
+For yourself
 ------------
 
 When you publish for yourself, your SmartApp or Device Handler is available *only to your account* on your SmartThings mobile app.
 
 .. _ensure-proper-location:
 
-Ensure Proper Location
+Ensure proper Location
 ^^^^^^^^^^^^^^^^^^^^^^
 
 To publish your SmartApp or Device Handler properly, you must be at the proper Location *before* you begin writing your code.
@@ -52,7 +52,7 @@ Tap on the *My Apps* category at the bottom and you will see your SmartApp.
 
 .. _publishing-for-distribution:
 
-For Public Distribution
+For public distribution
 -----------------------
 
 To publish your SmartApp or Device Handler for public distribution, you will need to submit it for review and approval by SmartThings.
@@ -62,7 +62,7 @@ Follow these steps:
 - From this page click on *+New Request*. This will take you to *Submit a SmartApp or device type for publication* page.
 - Follow the instructions on this page to submit your SmartApp or Device Handler for review by SmartThings.
 
-Review Process
+Review process
 --------------
 
 SmartThings team will review your SmartApp or Device Handler for approval.
