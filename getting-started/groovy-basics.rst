@@ -47,7 +47,7 @@ We make heavy use of the Groovy Console to test things out, and recommend you do
 
 ----
 
-Optional Semicolons
+Optional semicolons
 -------------------
 
 Semicolons are optional in Groovy, and generally not used:
@@ -100,7 +100,7 @@ Methods are the things the object can do, and similar to other languages, are op
 
 ----
 
-Optionally Typed
+Optionally typed
 ----------------
 
 Groovy is an **optionally typed** language. The following are both valid Groovy:
@@ -357,7 +357,7 @@ While lists and maps are simple in Groovy, there are many powerful methods in th
 
 ----
 
-Control Structures
+Control structures
 ------------------
 
 Groovy supports the conditional if/else syntax as you'd expect:
@@ -414,7 +414,7 @@ You can also use the for/in loop when working with collections:
 
 ----
 
-Calling Methods
+Calling methods
 ---------------
 
 When invoking methods, parentheses are *sometimes* optional. Methods that do not accept any parameters must include the parentheses.
@@ -438,7 +438,7 @@ When invoking methods, parentheses are *sometimes* optional. Methods that do not
 
 .. _groovy_getters_setters:
 
-Getters and Setters
+Getters and setters
 -------------------
 
 Groovy adds in some convenience JavaBean style getter and setter methods.
@@ -462,7 +462,7 @@ Don't worry if that's somewhat confusing; just know that if you a reference to a
 
 ----
 
-Defining Methods
+Defining methods
 ----------------
 
 Methods are generally defined and invoked as in other modern languages, with some notable enhancements.
@@ -522,7 +522,7 @@ Worth noting is that none of the above definitions include any type of explicit 
 
 ----
 
-Exception Handling
+Exception handling
 ------------------
 
 Like other programming languages, Groovy has error conditions, or exceptions. Because Groovy is based on Java, there are similarities to how Java handles exceptions. The big difference is that Groovy *does not require you to handle so-called checked exceptions*. In Groovy, we are always free to handle exceptions if we want, or disregard them and let them percolate up the call stack.
@@ -678,7 +678,7 @@ There's much more to know about closures if you're curious, but if you understan
 
 ----
 
-Groovy Truth
+Groovy truth
 ------------
 
 Groovy has some special definitions for what is true and what is false. It's worth understanding these definitions, as they become very valuable in writing concise, expressive Groovy code.
@@ -762,7 +762,7 @@ The above should get you through 99% of the code you'll see and write with Smart
 
 ----
 
-Default Imports
+Default imports
 ---------------
 
 Groovy imports several Java and Groovy packages by default. The following packages are imported for us (no need to explicitly import them via the ``import`` statement):
@@ -778,7 +778,7 @@ Groovy imports several Java and Groovy packages by default. The following packag
 
 ----
 
-What About Classes?
+What about classes?
 -------------------
 
 At the beginning of this tutorial, we said that Groovy is an object-oriented language. Yet, we haven't discussed creating classes in this tutorial. The reason for this is that in SmartThings, creating your own classes actually isn't possible. In SmartThings, each SmartApp or Device Handler is a relatively small, contained piece of code that runs in a sandboxed environment.
@@ -787,7 +787,7 @@ If you want to learn more about classes in Groovy in general or for usage outsid
 
 ----
 
-Further Reading
+Further reading
 ---------------
 
 There are many resources available to learn more about Groovy. As we'll see in the :ref:`groovy-for-smartthings` tutorial, there are some things about the Groovy programming language that we simplify with SmartThings, so a full knowledge of Groovy and all its capabilities is not necessary to develop with SmartThings.
@@ -806,7 +806,7 @@ There are also several books on Groovy. Here are a couple we know and recommend:
 
 ----
 
-Next Steps
+Next steps
 ----------
 
 Now that you know some of the basics of Groovy, head over to our :ref:`groovy-for-smartthings` tutorial to learn how SmartThings uses Groovy in some very specific ways for development.

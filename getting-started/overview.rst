@@ -13,7 +13,7 @@ With SmartThings, developers can:
 
 ----
 
-Developer Highlights
+Developer highlights
 --------------------
 
 SmartThings was built to be developer-friendly. Some of the key developer features:
@@ -26,7 +26,7 @@ SmartThings was built to be developer-friendly. Some of the key developer featur
 
 ----
 
-How it Works
+How it works
 ------------
 
 There are two primary ways that developers can create with SmartThings.
@@ -67,7 +67,7 @@ Developers can also integrate new devices into the SmartThings ecosystem by crea
 
 ----
 
-An Open Platform
+An open platform
 ----------------
 
 SmartThings was built by developers, for developers. We recognized that only by creating an open development platform, will the power of the IoT be fully unleashed.
@@ -78,8 +78,8 @@ Our vibrant `developer community <https://community.smartthings.com/c/developers
 
 ----
 
-What's Next?
-------------
+What's next
+-----------
 
 To start developing with SmartThings, you will need to create a developer account and become familiar with the developer tools. This is covered next in the :ref:`quick-start`.
 

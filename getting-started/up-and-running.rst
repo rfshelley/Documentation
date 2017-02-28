@@ -26,7 +26,7 @@ Explore
 
 The :ref:`tools_ide` guide discusses the developer tools in more detail, but for now, let's look at a few key features to get you comfortable.
 
-Account Management
+Account management
 ^^^^^^^^^^^^^^^^^^
 
 You can use the tools available to view and manage your Locations, Hubs, and Devices, as well as view a live log of your SmartThings.
@@ -42,7 +42,7 @@ As a new SmartThings developer, you won't have any SmartApps or Device Handlers 
 
 ----
 
-Next Steps
+Next steps
 ----------
 
 Now that you know what the SmartThings developer platform offers, you can dive in to the fun stuff.
