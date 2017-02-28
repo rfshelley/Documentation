@@ -158,7 +158,7 @@ If you don't have a location yet, the simulator will show a message instructing 
 
 ----
 
-SmartApp Basics
+SmartApp basics
 ---------------
 
 The first thing to know is that there are a few different types of SmartApps.
@@ -313,7 +313,7 @@ Now that you've updated the ``preferences`` method, make sure to save your Smart
 
 ----
 
-Events and Callback Methods
+Events and callback methods
 ---------------------------
 
 Our SmartApp needs to turn a switch on when motion is detected.
@@ -393,7 +393,7 @@ Now that we've created our subscription, we need to define the event handler met
 
 ----
 
-Event Handler Methods
+Event Handler methods
 ---------------------
 
 Add the following method to your SmartApp.
@@ -414,7 +414,7 @@ Now that we know motion has been detected, we need to turn the light on!
 
 ----
 
-Controlling Devices
+Controlling devices
 -------------------
 
 Recall that capabilities support commands (things the device can do), as well as attributes (things the attribute knows).
@@ -489,7 +489,7 @@ You should see the switch should go on:
 
 .. _publish-install-smartapp:
 
-Publishing and Installing
+Publishing and installing
 -------------------------
 
 We can now see our first SmartApp in action in the simulator.
@@ -541,7 +541,7 @@ It also includes the ability for the user to uninstall this SmartApp.
 
 ----
 
-Turn Off When Motion Inactive
+Turn off when motion inactive
 -----------------------------
 
 We now have a simple SmartApp that turns a switch on when motion is detected.
@@ -601,7 +601,7 @@ Now when you change the motion to "inactive", the switch will turn off.
 
 ----
 
-Going Further - Adding Flexibility
+Going further--adding flexibility
 ----------------------------------
 
 Our SmartApp now turns a switch on when motion is detected, then turns it off when motion stops.
@@ -719,7 +719,7 @@ Go ahead and save and publish your SmartApp again, and try it out!
 
 ----
 
-Complete Code Listing
+Complete code listing
 ---------------------
 
 Here is the entire code for our SmartApp:
@@ -798,8 +798,8 @@ Here is the entire code for our SmartApp:
 
 ----
 
-But How Does the Switch Actually Turn On (or Off)?
----------------------------------------------------
+How the switch turns on (or off)
+--------------------------------
 
 Now that we understand how to control devices in a SmartApp, you may be wondering how exactly the method ``switch.on()`` turns on the switch.
 The answer is Device Handlers.
@@ -832,12 +832,12 @@ In this tutorial, you learned how to write a SmartApp. To do this, we:
 
 ----
 
-Next Steps
+Next steps
 ----------
 
 Now that you've written your first SmartApp and have a basic understanding of the SmartThings developer tools, language, and workflow, here are some further topics for you to pursue.
 
-More About SmartApps
+More about SmartApps
 ^^^^^^^^^^^^^^^^^^^^
 
 There is much more you can do with SmartApps than what this tutorial covered.
@@ -847,14 +847,14 @@ You can learn more about developing SmartApps in the :ref:`smartapp_dev_guide` g
 You can also make your SmartApp into a web service, capable of exposing its own REST endpoints.
 You can read about them in the :ref:`smartapp_web_services_guide` guide.
 
-Fork It!
+Fork it!
 ^^^^^^^^
 
 SmartThings SmartApps and Device Handlers are now hosted in GitHub.
 Further, the IDE can integrate with GitHub, to provide a seamless developer experience.
 Learn more about it in the :ref:`github_integration` chapter of the :ref:`tools_ide` guide. Happy forking!
 
-Device Handler Development
+Device Handler development
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you are interested in learning more about Device Handlers, and how to write one, head over to the :ref:`device_type_dev_guide` guide.
