@@ -10,12 +10,12 @@ Rate limits apply to SmartApps, Device Handlers, and Web Services SmartApps.
 
 -----
 
-SmartApp and Device Handler Rate Limits
+SmartApp and Device Handler rate limits
 ---------------------------------------
 
 SmartApps and Device Handlers are monitored for excessive resource utilization on two measures: **Execution Time Limits** and **Execution Count Limits.**
 
-Execution Time Limits
+Execution time limits
 ^^^^^^^^^^^^^^^^^^^^^
 
 - Methods are limited to a continuous execution time of 20 seconds.
@@ -24,13 +24,13 @@ Execution Time Limits
 
 If these limits are exceeded, the current execution will be suspended.
 
-Execution Count Limits
+Execution count limits
 ^^^^^^^^^^^^^^^^^^^^^^
 
 A SmartApp or a Device Handler is limited to no more than 250 executions in 60 seconds. If the limit of 250 executions is reached in a 60-second time window, no further executions will occur until the next time window. A log entry will be created for the SmartApp or the Device Handler that was rate limited. The count will start over when the current time window closes and the next time window begins.
 
-Ways to Avoid Hitting SmartApp and Device Handler Rate Limits
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Ways to avoid hitting rate limits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A common cause for exceeding the 250 executions within 60 seconds limit is excessive subscriptions that might result in an infinite loop of events. For example, subscribing to an “on” and “off” event and the “on” command triggers the “off” event and vice versa - leading to a never-ending chain of event handlers being called. It is also possible that a SmartApp that subscribes to a very large number of particularly “chatty” devices may run into this limit. Making sure that your SmartApp subscriptions are not excessive in number will help avoid hitting the rate limit.
 
@@ -40,7 +40,7 @@ Similarly, a Device Handler may exceed Rate Limit when it sends many commands to
 
 .. _web_services_rate_limiting:
 
-Web Services SmartApps Rate Limits
+Web services SmartApps rate limits
 ----------------------------------
 
 SmartApps or Device Handlers that expose their web services APIs are limited to receiving 250 requests in a single 60-second time window.
@@ -48,7 +48,7 @@ SmartApps or Device Handlers that expose their web services APIs are limited to 
 There are various headers available on every request that provide information about the current rate limit limits for a given installed SmartApp or Device Handler. These are discussed further below.
 
 
-Rate Limit Headers
+Rate limit headers
 ^^^^^^^^^^^^^^^^^^
 
 The SmartThings platform will set three HTTP headers on the response for every inbound API call, so that a client may understand the current rate limiting status:
@@ -63,13 +63,13 @@ The SmartThings platform will set three HTTP headers on the response for every i
    The time remaining in the current rate limit window. In this example, there is 58 seconds remaining before the current rate limit window resets.
 
 
-Rate Limit HTTP Status Code
+Rate limit HTTP status code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In addition to the three HTTP headers above, when the rate limit has been exceeded, the HTTP status code of 429 will be sent on the response, as shown below.
 
 
-Rate Limit Error Handling
+Rate limit error handling
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following error may be returned by the SmartThings platform when a Rate Limit is hit:
@@ -84,7 +84,7 @@ HTTP Response Code          Error Message                                       
 
 .. _sms_rate_limits:
 
-SMS Rate Limits
+SMS rate limits
 ---------------
 
 No more than 15 SMS messages may be sent to the same number per minute.
