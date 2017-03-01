@@ -1,7 +1,7 @@
 .. _smartapp_as_web_service_part_1:
 
-Web Services Tutorial - SmartApp
-================================
+Web Services Tutorial--SmartApp
+===============================
 
 This is the first part of two that will teach you how to build a Web Services SmartApp and a web application to illustrate the authorization flow.
 
@@ -33,7 +33,7 @@ Note the Client ID and secret - they'll be used later (should you forget, you ca
 
 ----
 
-Define Preferences
+Define preferences
 ------------------
 
 SmartApps declare preferences metadata that is used at installation and configuration time, to allow the user to control what devices the SmartApp will have access to.
@@ -60,7 +60,7 @@ You can learn more about Web Services SmartApp preferences :ref:`here <web_servi
 
 ----
 
-Specify Endpoints
+Specify endpoints
 -----------------
 
 The ``mappings`` declaration allows developers to expose HTTP endpoints, and map the various supported HTTP operations to an associated handler.
@@ -103,7 +103,7 @@ See the :ref:`web_services_mapping_endpoints` documentation for more information
 
 ----
 
-GET Switch Information
+GET switch information
 ----------------------
 
 Now that we've defined our endpoints, we need to handle the requests in the handler methods we stubbed in above.
@@ -129,7 +129,7 @@ See the :ref:`smartapp_web_services_response` documentation for more information
 
 ----
 
-UPDATE the Switches
+UPDATE the switches
 -------------------
 
 We also need to handle a PUT request to the ``/switches/:command`` endpoint. ``/switches/on`` will turn the switches on, and ``/switches/off`` will turn the switches off.
@@ -193,7 +193,7 @@ We can use these to test making requests to our SmartApp.
 
 ----
 
-Make API Calls to the SmartApp
+Make API calls to the SmartApp
 ------------------------------
 
 Using whatever tool you prefer for making web requests (this example will use curl, but `Apigee <http://apigee.com>`__ is a good UI-based tool for making requests), we will call one of our SmartApp endpoints.

@@ -11,7 +11,7 @@ We strongly recommend you to try out the `web IDE <http://ide.smartthings.com>`_
 
 ----
 
-Preferences Overview
+Preferences overview
 --------------------
 
 Preferences are made up of one or more pages.
@@ -67,7 +67,7 @@ The values can be accessed like this:
 
 ----
 
-Page Definition
+Page definition
 ---------------
 
 Pages can be defined two different ways: either by *page(String pageName, String pageTitle) {}* or by *page(options) {}*.
@@ -122,7 +122,7 @@ We will see more in-depth examples of pages in the following sections.
 
 ----
 
-Section Definition
+Section definition
 ------------------
 
 Pages can have one or more sections.
@@ -174,7 +174,7 @@ The valid options are:
 
 ----
 
-Single Preferences Page
+Single preferences page
 -----------------------
 
 A single page preferences declaration is composed of one or more *section* elements, which in turn contain one or more *elements*.
@@ -210,7 +210,7 @@ The mobile application will prevent the user from going to the next page or inst
 
 ----
 
-Multiple Preferences Pages
+Multiple preferences pages
 --------------------------
 
 Preferences can also be broken up into multiple pages.
@@ -271,7 +271,7 @@ Page 1                      Page 2                      Page 3
 
 ----
 
-Preference Elements and Inputs
+Preference elements and inputs
 ------------------------------
 
 Preference pages (single or multiple) are composed of one or more *sections.*
@@ -753,7 +753,7 @@ Device Preference Input  Device Name Searched For
 
 .. _prefs_hide_when_empty:
 
-Hide When Empty
+Hide when empty
 ---------------
 
 Inputs, sections, and pages support the ``hideWhenEmpty`` attribute.
@@ -840,7 +840,7 @@ We do this by referencing the name of the related input.
 
 .. _custom_remove_button:
 
-Custom Remove Button
+Custom Remove button
 --------------------
 
 By default, a "Remove" button is added to the bottom of a preferences page that specifies ``uninstall: true``.
@@ -906,7 +906,7 @@ If these rules are not followed, exceptions are thrown and error messages are di
 
 ----
 
-Dynamic Preferences
+Dynamic preferences
 -------------------
 
 One of the most powerful features of multi-page preferences is the ability to dynamically generate the content of a page based on previous selections or external inputs, such as the data elements returned from a web services call.
@@ -1041,7 +1041,7 @@ In addition, the ``refreshInterval`` input option is specific to ``dynamicPage()
 
 .. _app_settings:
 
-Private Settings
+Private settings
 ----------------
 
 Some SmartApps may need to reference sensitive data, such as API keys or secrets.

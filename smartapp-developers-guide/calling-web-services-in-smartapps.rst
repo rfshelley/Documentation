@@ -15,7 +15,7 @@ The various APIs are named for the underlying HTTP method they will use. ``httpG
 
 ----
 
-HTTP Methods
+HTTP methods
 ------------
 
 The following methods are available for making HTTP requests.
@@ -57,7 +57,7 @@ Here's a simple example of making an HTTP GET request:
 
 ----
 
-Configuring The Request
+Configuring the request
 -----------------------
 
 The various APIs for making HTTP requests all accept a map of parameters that define various information about the request:
@@ -81,7 +81,7 @@ body                Request body that will be encoded based on the given content
 
 ----
 
-Handling The Response
+Handling the response
 ---------------------
 
 The HTTP APIs accept a closure that will be called with the response information from the request.
@@ -169,7 +169,7 @@ We can easily get the humidity from this data structure as shown above:
 
 ----
 
-Host and Timeout Limitations
+Host and timeout limitations
 ----------------------------
 
 Host and IP address restrictions
@@ -189,7 +189,7 @@ Because the request is executed synchronously within a single execution, we enco
 
 ----
 
-Try It Out
+Try it out
 ----------
 
 If you're interested in experimenting with the various HTTP APIs, there are a few tools you can use to try out the APIs without signing up for any API keys.
@@ -225,7 +225,7 @@ Here's an example using ``httpPostJson()``:
 
 ----
 
-See Also
+See also
 --------
 
 A simple example using ``httpGet()`` that connects a SmartSense Temp/Humidity Sensor to your Weather Underground personal weather station can be found `here <https://github.com/SmartThingsCommunity/Code/blob/e8a6b6926fb32df1e8d79bfe09a1ad063682396a/smartapps/wunderground-pws-connect.groovy>`_.

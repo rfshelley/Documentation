@@ -11,7 +11,7 @@ This allows SmartApps to notify people when important events happen in their hom
 
 .. _contact_book:
 
-Send Notifications with Contact Book
+Send notifications with Contact Book
 ------------------------------------
 
 .. note::
@@ -27,7 +27,7 @@ This has the advantage that a user does not have to enter in phone numbers for e
 
 Sending notifications by using the Contact Book feature is the preferred way for sending notifications in a SmartApp.
 
-Selecting Contacts to Notify
+Selecting Contacts to notify
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To allow a user to select from a list of their contacts, use the ``"contact"`` input type:
@@ -52,7 +52,7 @@ In the example above, the users selected will be stored in a variable named ``re
 
     When creating contacts, the user can enter an email address. Emails are *not* currently sent by SmartThings, though they are used to identify SmartThings users, and enable them to receive push notifications.
 
-Send Notifications to Contacts
+Send notifications to Contacts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use the ``sendNotificationToContacts()`` method to send a notification to the users (and the specified mode of contact) selected.
@@ -74,7 +74,7 @@ If you don't want the message to appear in the Notifications feed, specify ``eve
 
 .. _disabled_contact_book:
 
-Handling Disabled Contact Book
+Handling disabled Contact Book
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A user may not have created any contacts, and SmartApps should be written to handle this.
@@ -110,7 +110,7 @@ You can check the ``contactBookEnabled`` property on ``location`` to find out if
         sendSms(phone, "your message here")
     }
 
-Complete Example
+Complete example
 ^^^^^^^^^^^^^^^^
 
 The example SmartApp below sends a notification to selected contacts when a door opens.
@@ -176,7 +176,7 @@ If the user has no contacts, they can enter in a number to receive an SMS notifi
 
 ----
 
-Send Push Notifications
+Send push notifications
 -----------------------
 
 To send a push notification through the SmartThings mobile app, you can use the ``sendPush()`` or ``sendPushMessage()`` methods.
@@ -220,7 +220,7 @@ Push notifications will be sent to all users with the SmartThings mobile app ins
 
 ----
 
-Send SMS Notifications
+Send SMS notifications
 ----------------------
 
 In addition to sending push notifications through the SmartThings mobile app, you can also send SMS messages to specified numbers using the ``sendSms()`` and ``sendSmsMessage()`` methods.
@@ -273,7 +273,7 @@ SMS notifications will be sent from the number 844647 ("THINGS").
 
 ----
 
-Send Both Push and SMS Notifications
+Send both push and SMS notifications
 ------------------------------------
 
 The ``sendNotification()`` method allows you to send both push and/or SMS messages, in one convenient method call.
@@ -300,7 +300,7 @@ It can also optionally display the message in the Notifications feed.
 
 ----
 
-Only Display Message in the Notifications Feed
+Only display message in the notifications feed
 ----------------------------------------------
 
 Use the ``sendNotificationEvent()`` method to display a message in the Notifications feed, without sending a push notification or SMS message:
@@ -321,7 +321,7 @@ Several examples exist in the SmartApp templates that send notifications. Here a
 
 ----
 
-Related API Documentation
+Related API documentation
 -------------------------
 - :ref:`smartapp_send_notification_to_contact`
 - :ref:`location_contact_book_enabled`

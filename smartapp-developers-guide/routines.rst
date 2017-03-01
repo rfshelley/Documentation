@@ -4,7 +4,7 @@
 Routines
 ========
 
-*Routines* (or *Hello Home Actions* in older mobile apps) allow certain things to happen when the routine is invoked.
+*Routines* (or *Hello Home Actions* in older mobile apps) allow certain things to happen when the Routine is invoked.
 
 
 .. image:: ../img/smartapps/routines.png
@@ -16,23 +16,23 @@ Routines
 Overview
 --------
 
-Routines allow for certain things to happen whenever it executes. SmartThings comes with a few routines already installed:
+Routines allow for certain things to happen whenever it executes. SmartThings comes with a few Routines already installed:
 
 - Good Morning! - You or the house is waking up
 - Good Night! - You or the house is going to sleep
 - Goodbye! - You're leaving the house
 - I'm Back! - You've returned to the house
 
-Each routine can be configured to do certain things. For example, when "I'm Back!" executes, you can set the mode to "Home", unlock doors, adjust the thermostat, etc.
+Each Routine can be configured to do certain things. For example, when "I'm Back!" executes, you can set the mode to "Home", unlock doors, adjust the thermostat, etc.
 
-Routines exist for each location in a SmartThings account.
+Routines exist for each Location in a SmartThings account.
 
 ----
 
-Get Available Routines
+Get available Routines
 ----------------------
 
-You can get the routines for the location the SmartApp is installed into by accessing the ``helloHome`` object on the ``location``:
+You can get the Routines for the Location the SmartApp is installed into by accessing the ``helloHome`` object on the ``location``:
 
 .. code-block:: groovy
 
@@ -59,11 +59,11 @@ To execute a Routine, you can call the ``execute()`` method on ``helloHome``:
 
 ----
 
-Allowing Users to Select Routines
+Allowing users to select Routines
 ---------------------------------
 
 A SmartApp may want to allow a user to execute certain Routines in a SmartApp.
-Since the routines for each location will vary, we need to get the available routines, and use them as options for an ``enum`` input type.
+Since the Routines for each Location will vary, we need to get the available Routines, and use them as options for an ``enum`` input type.
 
 This needs to be done in a dynamic preferences page, since we need to execute some code to populate the available actions:
 
@@ -100,11 +100,11 @@ You can then access the selected phrase like so:
 
 ----
 
-Routine Events
+Routine events
 --------------
 
-When a routine is executed, a ``"routineExecuted"`` event is created for that location.
-Here's how you can subscribe to a routine being executed in a SmartApp:
+When a Routine is executed, a ``"routineExecuted"`` event is created for that Location.
+Here's how you can subscribe to a Routine being executed in a SmartApp:
 
 .. code-block:: groovy
 
@@ -136,7 +136,7 @@ Here's how you can subscribe to a routine being executed in a SmartApp:
 Example
 -------
 
-This example simply shows executing a selected routine when a switch turns on, and another action when a switch turns off:
+This example simply shows executing a selected Routine when a switch turns on, and another action when a switch turns off:
 
 .. code-block:: groovy
 
@@ -200,7 +200,7 @@ This example simply shows executing a selected routine when a switch turns on, a
 
 ----
 
-Further Reading
+Further reading
 ---------------
 
 - :ref:`Preferences and Settings Guide <prefs_and_settings>`

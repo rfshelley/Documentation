@@ -38,7 +38,7 @@ There are a couple of important concepts that need to be understood 
 
 ----
 
-How it Works
+How it works
 ------------
 
 Our overall approach to API access requires the end­ user to authenticate and authorize the API access in two steps:
@@ -51,7 +51,7 @@ It is important to understand that it is the SmartApp itself that exposes the AP
 
 This approach is designed to ensure that an external system must have explicit access granted to the devices, before it can control those devices.
 
-OAuth-Integrated App Installation Flow
+OAuth-integrated app installation flow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |Alt OAuth-Integrated App
@@ -74,18 +74,18 @@ the API Connection and Usage process:
 
 ----
 
-The End-User Journey
+The end-user journey
 --------------------
 
 Before discussing the specific steps to building a Web Services SmartApp, you should understand the end user experience.
 
-Initiate Connection from External System
+Initiate connection from external system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The first step is to initiate the connection with the SmartThings cloud from the external web application.
 This is different for each web application, but is just a URL.
 
-Authentication and Authorization
+Authentication and authorization
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The typical OAuth journey is the OAuth2 authorization code flow, initiated from the website of the external system, whereby the user is redirected to the SmartThings website.
@@ -95,7 +95,7 @@ This is where they enter their SmartThings credentials, as shown below:
 
 Once authenticated with SmartThings, they will be prompted to specifically authorize access by the application.
 
-Application Configuration
+Application configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The user is prompted to configure the Web Services SmartApp that will be automatically installed.

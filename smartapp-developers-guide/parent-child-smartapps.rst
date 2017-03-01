@@ -24,7 +24,7 @@ A child SmartApp can have only one parent.
 
 ----
 
-The Parent SmartApp
+The parent SmartApp
 -------------------
 
 To define that a SmartApp is a parent to other SmartApps, use the ``app`` input element inside the ``preferences``.
@@ -56,7 +56,7 @@ multiple  If ``true``, the user can install multiple child SmartApps. If ``false
 
 ----
 
-The Child SmartApp
+The child SmartApp
 ------------------
 
 In the SmartApp you wish to serve as the child, specify the ``parent`` option in the child SmartApp's ``definition``, in the form of ``"namespace":"Parent App Name"``:
@@ -77,7 +77,7 @@ In the SmartApp you wish to serve as the child, specify the ``parent`` option in
 
 ----
 
-Communicating Between Parent and Children
+Communicating between parent and children
 -----------------------------------------
 
 Parents and children may need to talk to each other.
@@ -113,10 +113,10 @@ Children can communicate with their parent by using the ``parent`` property in t
 
 ----
 
-Preventing More Than One Parent Instance
+Preventing more than one parent instance
 ----------------------------------------
 
-If you want to prevent users from installing more than one Parent SmartApp in their location, you can specify ``singleInstance: true`` in the definition:
+If you want to prevent users from installing more than one parent SmartApp in their location, you can specify ``singleInstance: true`` in the definition:
 
 .. code-block:: groovy
 
@@ -424,8 +424,8 @@ Then, go to the marketplace and install "Simple Lighting" in "My Apps". You can 
 
 ----
 
-Tips & Best Practices
----------------------
+Tips and best practices
+-----------------------
 
 - Think carefully about creating more than one level of parent-to-child relationships, as it may negatively impact usability and create unneeded complications.
 - Sharing ``state`` or ``atomicState`` between parent and child SmartApps is not currently supported.

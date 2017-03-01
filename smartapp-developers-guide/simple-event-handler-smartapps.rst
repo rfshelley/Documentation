@@ -14,7 +14,7 @@ This section will discuss events and how you can subscribe to them in your Smart
 
 ----
 
-Subscribe to Specific Device Events
+Subscribe to specific device events
 -----------------------------------
 
 The most common use case for event subscriptions is for device events:
@@ -50,7 +50,7 @@ Putting these together, we use "switch.on".
 
 ----
 
-Subscribe to All Device Events
+Subscribe to all device events
 ------------------------------
 
 You can also subscribe to all states by just specifying the attribute name:
@@ -72,7 +72,7 @@ In this case, the ``switchHandler`` method will be called for both the "on" and 
 
 ----
 
-Subscribe to Multiple Devices
+Subscribe to multiple devices
 -----------------------------
 
 If your SmartApp allows multiple devices, you can subscribe to events for all the devices:
@@ -95,27 +95,27 @@ If your SmartApp allows multiple devices, you can subscribe to events for all th
 
 ----
 
-Subscribe to Location Events
+Subscribe to Location events
 ----------------------------
 
-In addition to subscribing to device events, you can also subscribe to events for the user's location.
+In addition to subscribing to device events, you can also subscribe to events for the user's Location.
 
-You can subscribe to the following location events:
+You can subscribe to the following Location events:
 
 *mode*
     Triggered when the mode changes.
 *position*
-    Triggered when the geofence position changes for this location. Does not get triggered when the fence is widened or narrowed - only fired when the position changes.
+    Triggered when the geofence position changes for this Location. Does not get triggered when the fence is widened or narrowed - only fired when the position changes.
 *sunset*
-    Triggered at sunset for this location.
+    Triggered at sunset for this Location.
 *sunrise*
-    Triggered at sunrise for this location.
+    Triggered at sunrise for this Location.
 *sunriseTime*
-    Triggered around sunrise time. Used to get the time of the next sunrise for this location.
+    Triggered around sunrise time. Used to get the time of the next sunrise for this Location.
 *sunsetTime*
-    Triggered around sunset time. Used to get the time of the next sunset for this location.
+    Triggered around sunset time. Used to get the time of the next sunset for this Location.
 
-Pass in the location property automatically injected into every SmartApp as the first parameter to the subscribe method.
+Pass in the Location property automatically injected into every SmartApp as the first parameter to the ``subscribe`` method.
 
 .. code-block:: groovy
 
@@ -134,7 +134,7 @@ Refer to the `Sunset and Sunrise <http://docs.smartthings.com/en/latest/smartapp
 
 ----
 
-The Event Object
+The Event object
 ----------------
 
 Event-handler methods must accept a single parameter, the event itself.
@@ -162,7 +162,7 @@ A few of the common ways of using the event:
 .. note::
     The contents of each Event instance will vary depending on the exact event. If you refer to the Event reference documentation, you will see different value methods, like "floatValue" or "dateValue". These may or may not be populated depending on the specific event, and may even throw exceptions if not applicable.
 
-See Also
+See also
 --------
 
  - `Sunset and Sunrise <sunset-and-sunrise.html>`__
