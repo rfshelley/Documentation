@@ -27,7 +27,7 @@ As part of the authorization flow, the SmartApp will be installed to the user's 
 
 ----
 
-Get Authorization Code
+Get authorization code
 ----------------------
 
 Authorization URL: ``https://graph.api.smartthings.com/oauth/authorize``
@@ -60,7 +60,7 @@ The authorization code expires 24 hours after issue.
 
 ----
 
-Get Access Token
+Get access token
 ----------------
 
 Token URL: ``https://graph.api.smartthings.com/oauth/token``
@@ -105,7 +105,7 @@ Once you have the token, it must be stored securely in the application.
 
 .. _web_services_get_endpoints:
 
-Get SmartApp Endpoints
+Get SmartApp endpoints
 ----------------------
 
 You can use the token to request the callable endpoints of the SmartApp, by making a ``GET`` request to ``https://graph.api.smartthings.com/api/smartapps/endpoints``.
@@ -146,7 +146,7 @@ A successful response will return a list of all installed SmartApps for the ``cl
 
 ----
 
-Make REST Calls
+Make REST calls
 ---------------
 
 Using the ``uri`` returned from ``/api/smartapps/endpoints``, you can then make REST calls the SmartApp.

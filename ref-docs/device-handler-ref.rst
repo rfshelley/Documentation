@@ -563,6 +563,21 @@ Returns the URL of the server where this Device Handler can be reached for API c
 
 ----
 
+.. _device_handler_ref_get_color_util:
+
+getColorUtil()
+--------------
+
+Returns the :ref:`color_util_ref` object.
+
+**Signature:**
+    ``ColorUtilities getColorUtil()``
+
+**Returns:**
+    :ref:`color_util_ref`
+
+----
+
 httpDelete()
 ------------
 
@@ -990,6 +1005,50 @@ For example, the reply method ``reply "2001FF,2502": "command: 2503, payload: FF
             reply "zcl on-off off": "on/off: 0"
         }
         ...
+    }
+
+----
+
+runEvery1Minute()
+------------------
+
+Creates a recurring schedule that executes the specified ``handlerMethod`` every minute.
+Using this method will pick a random start time in the next minute, and run every minute after that.
+
+**Signature:**
+    ``void runEvery1Minute(handlerMethod[, options])``
+
+.. tip::
+
+    This is preferred over using ``schedule(cronExpression, handlerMethod)`` for a regular schedule like this because with a cron expression all installations of a SmartApp will execute at the same time. With this method, the executions will be spread out over the 1 minute period.
+
+**Parameters:**
+    ``handlerMethod`` - The method to call every minute. Can be the name of the method as a string, or a reference to the method.
+
+    ``options`` *(optional)* - A map of parameters, with the following keys supported:
+
+    ========= ====================== ===========
+    Key       Possible values        Description
+    ========= ====================== ===========
+    data      A map of data          A map of data that will be passed to the handler method.
+    ========= ====================== ===========
+
+**Returns:**
+    void
+
+**Example:**
+
+.. code-block:: groovy
+
+    runEvery1Minute(handlerMethod1)
+    runEvery1Minute(handlerMethod2, [data: [key1: 'val1']])
+
+    def handlerMethod1() {
+        log.debug "handlerMethod1"
+    }
+
+    def handlerMethod2(data) {
+        log.debug "handlerMethod2, data: $data"
     }
 
 ----

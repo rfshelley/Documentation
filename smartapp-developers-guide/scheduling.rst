@@ -25,8 +25,8 @@ We'll look at each scenario in detail, and at the methods SmartThings makes avai
 
 ----
 
-Schedule From Now - ``runIn()``
--------------------------------
+Schedule from now--``runIn()``
+------------------------------
 
 A SmartApp may want to take some action within a certain duration of time after some event has occurred.
 Consider a few examples:
@@ -87,8 +87,8 @@ So, if you do specify ``[overwrite: false]``, be sure to write your handler so t
 
 ----
 
-Run Once in the Future - ``runOnce()``
---------------------------------------
+Run once in the future--``runOnce()``
+-------------------------------------
 
 Some SmartApps may need to schedule certain actions to happen *once* at a specific time and date. :ref:`smartapp_run_once` handles this case.
 
@@ -124,7 +124,7 @@ Like ``runIn()``, you can also specify the overwrite behavior of ``runOnce()``:
 
 .. _scheduling_recurring_schedules:
 
-Run on a Recurring Schedule
+Run on a recurring schedule
 ---------------------------
 
 Often, there is a need to schedule a job to run on a specific schedule.
@@ -139,7 +139,7 @@ The various ``schedule()`` methods follow a similar form - they take an argument
 
     If a method is already scheduled, and later you call ``schedule()`` with that method, then that method will be executed as per the new schedule.
 
-Schedule Once Per Day
+Schedule once per day
 ^^^^^^^^^^^^^^^^^^^^^
 
 Use the ``schedule()`` method to execute a handler method every day at a certain time:
@@ -184,7 +184,7 @@ Finally, you can pass a Long representing the desired time in milliseconds (usin
 
 .. _schedule_run_every:
 
-Schedule Every X Minutes or Hours
+Schedule every X minutes or hours
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For common recurring schedules, SmartThings provides a few convenience APIs that we can use.
@@ -197,6 +197,7 @@ As such, these methods should be preferred over cron expressions when available.
 
 The currently available methods are:
 
+- :ref:`smartapp_run_every_1_minute`
 - :ref:`smartapp_run_every_5_minutes`
 - :ref:`smartapp_run_every_10_minutes`
 - :ref:`smartapp_run_every_15_minutes`
@@ -221,7 +222,7 @@ Using these methods is similar to other scheduling methods:
 
 .. _schedule_using_cron:
 
-Schedule Using Cron
+Schedule using cron
 ^^^^^^^^^^^^^^^^^^^
 
 .. important::
@@ -261,7 +262,7 @@ Day of Week  1-7 or SUN-SAT   Yes      , - * ? / L
 Year         empty, 1970-2099 No       , - * /
 ============ ================ ======== =================
 
-**Allowed Wildcards**
+**Allowed wildcards**
 
     - ``,`` (comma) is used to specify additional values. For example, SAT,SUN,MON in the Day of Week field means “the days Saturday, Sunday, and Monday.”
     - ``-`` (hyphen) is used to specify ranges. For example, ``5-7`` in the Hours field means “the hours 5, 6 and 7”.
@@ -326,7 +327,7 @@ Expression Description                        Description
 
 ----
 
-Passing Data to the Handler Method
+Passing data to the handler method
 ----------------------------------
 
 Sometimes it is useful to pass data to the handler method.
@@ -365,7 +366,7 @@ If this limit is exceeded, a ``physicalgraph.exception.DataCharacterLimitExceede
 
 ----
 
-Removing Scheduled Executions
+Removing scheduled executions
 -----------------------------
 
 You can remove scheduled executions using the :ref:`smartapp_unschedule` method:
@@ -402,7 +403,7 @@ You can also call ``unschedule()`` with no arguments to remove all schedules:
 
 ----
 
-Viewing Schedules in the IDE
+Viewing schedules in the IDE
 ----------------------------
 
 You can view schedules for any installed SmartApp in the IDE.
@@ -433,14 +434,14 @@ You can also view the SmartApp job history, which shows the previous executions 
 
 .. _limitations_best_practices:
 
-Scheduling Best Practices
--------------------------
+Best practices
+--------------
 
 When using any of the scheduling APIs, it's important to understand some limitations and best practices.
 
 .. _scheduling_chained_run_in:
 
-Avoid Chained ``runIn()`` Calls
+Avoid chained ``runIn()`` calls
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use ``runIn()`` to schedule one-time executions, not recurring schedules.
@@ -477,21 +478,21 @@ Prefer `runEvery*()` over cron
 
 Use any of the :ref:`runEvery*() <schedule_run_every>` methods instead of creating your own cron schedule when possible.
 
-Execution Time May Not Be in Exact Seconds
+Execution time may not be in exact seconds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 SmartThings will try to execute your scheduled job at the specified time, but cannot guarantee it will execute at that exact moment.
 As a general rule of thumb, you should expect that your job will be called within the minute of scheduled execution.
 For example, if you schedule a job at 5:30:20 (20 seconds past 5:30) to execute in five minutes, we expect it to be executed at some point in the 5:35 minute.
 
-Do Not Aggressively Schedule
+Do not aggressively schedule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Every scheduled execution incurs a cost to launch the SmartApp, and counts against the :ref:`rate_limits`.
 While there are some limitations in place to prevent excessive scheduling, it's important to note that excessive polling or scheduling is discouraged.
 It is one of the items we look for when reviewing community-developed SmartApps or device-type handlers.
 
-``unschedule()`` is Expensive
+``unschedule()`` is expensive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As discussed above, ``unschedule()`` is currently a potentially expensive operation.
@@ -500,7 +501,7 @@ We plan to address this in the near future. Until we do, be aware of the potenti
 
 Note that when the SmartApp is uninstalled, all scheduled executions are removed - there is no need to call ``unschedule()`` in the ``uninstalled()`` method.
 
-Number of Scheduled Executions Limit
+Number of scheduled executions limit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :ref:`smartapp_can_schedule` method returns false if four or more scheduled executions are created.

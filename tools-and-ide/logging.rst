@@ -17,7 +17,7 @@ To view the logs, organized by app, click on the *Live Logging* link at the top 
 
 ----
 
-Logging Levels
+Logging levels
 --------------
 
 The log instance currently supports these log levels, in decreasing order of severity:
@@ -37,7 +37,7 @@ TRACE ``log.trace(String, Throwable = null)`` Most detailed information.
 
 .. _logging_exceptions:
 
-Logging Exceptions
+Logging exceptions
 ------------------
 
 All log methods accept a second, optional parameter of type ``Throwable``.
@@ -66,7 +66,7 @@ Executing the above code would result in the following message in Live Logging:
 
 ----
 
-Logging Examples
+Logging examples
 ----------------
 
 Consider the following simple SmartApp which sets up some switch devices

@@ -1,7 +1,7 @@
 .. _smartapp_as_web_service_part_2:
 
-Web Services SmartApp Tutorial - Authorization Flow
-===================================================
+Web Services SmartApp Tutorial--Authorization Flow
+==================================================
 
 In `Part 1 <./tutorial-part1.html>`__ of this tutorial, you learned how to create a simple Web Services SmartApp, and install it in the IDE simulator, and make web requests to it.
 
@@ -42,7 +42,7 @@ Visit the `Ruby <http://ruby-lang.org>`__ website to install Ruby, and the `Sina
 
 ----
 
-Bootstrap the Sinatra App
+Bootstrap the Sinatra app
 -------------------------
 
 Create a new directory for the Sinatra app, and change directories to it:
@@ -152,7 +152,7 @@ We've handled the root URL to simply display a link that points to the ``/author
 
 ----
 
-Get an Authorization Code
+Get an authorization code
 -------------------------
 
 When the user clicks on the "Connect with SmartThings" link, we need to get our OAuth authorization code.
@@ -197,7 +197,7 @@ You'll notice that we haven't implemented handling this URL yet, so we see "Not 
 
 ----
 
-Get an Access Token
+Get an access token
 -------------------
 
 When SmartThings redirects back to our application after authorizing, it passes a ``code`` parameter on the URL.
@@ -248,7 +248,7 @@ Once authorized, you should be redirected to the ``/getswitch`` URL. We'll start
 
 ----
 
-Discover the Endpoint
+Discover the endpoint
 ---------------------
 
 Now that we have the OAuth token, we can use it to discover the endpoint of our WebServices SmartApp.
@@ -301,10 +301,10 @@ You should then see the JSON response and endpoint displayed on your page.
 
 ----
 
-Make API Calls
+Make API calls
 --------------
 
-Now that we have our token and endpoint, we can (gasp!) make API calls to our SmartApp!
+Now that we have our token and endpoint, we can make API calls to our SmartApp.
 
 As you may have guessed by the URL path, we're just going to display the name of the switch, and it's current status (on or off).
 

@@ -1,8 +1,8 @@
 .. _async_http_guide:
 
-==================================================
-Making Asynchronous External HTTP Requests (Beta!)
-==================================================
+=================================================
+Making Asynchronous External HTTP Requests (Beta)
+=================================================
 
 .. include:: ../common/async-http-beta-note.txt
 
@@ -22,7 +22,7 @@ With asynchronous HTTP requests, we're far less likely to encounter execution ti
 
 ----
 
-Quick Example
+Quick example
 -------------
 
 Let's jump right in and look at an example asynchronous HTTP request.
@@ -62,7 +62,7 @@ The details of handling the response are documented in the :ref:`async_http_resp
 
 ----
 
-Synchronous versus Asynchronous
+Synchronous versus asynchronous
 -------------------------------
 
 The following diagrams illustrate the difference between making synchronous HTTP requests, and using the new asynchronous HTTP APIs.
@@ -93,7 +93,7 @@ A summary of the supported operations is documented :ref:`below <async_http_supp
 
 .. _include_statement:
 
-The Include Statement
+The include Statement
 ---------------------
 
 All asynchronous HTTP APIs are namespaced in an object that can be included in the SmartApp or Device Handler using the ``include`` statement:
@@ -133,7 +133,7 @@ The ``include`` statement should be placed at the top of the file.
 
 .. _async_http_configure_request:
 
-Configuring the Request
+Configuring the request
 -----------------------
 
 All asynchronous HTTP request methods require, as the first argument, the name of the method to call with the response.
@@ -170,7 +170,7 @@ If specified, the ``path`` will be merged with the URI:
 Note that only publicly accessible (i.e., non-local) addresses can be used when making HTTP requests.
 See the :ref:`async_http_limits` section below for more information.
 
-Request Headers
+Request headers
 ^^^^^^^^^^^^^^^
 
 As you see in the above table, the request headers ``Content-Type`` and ``Accept`` will be added to every request.
@@ -299,7 +299,7 @@ And here's the request made by the above example:
 
 .. _async_http_response_handling:
 
-Handling the Response
+Handling the response
 ---------------------
 
 Once SmartThings executes the request we specified and receives a response from the third party, the request handler method we specified will be called (in a new execution of the SmartApp or Device Handler).
@@ -499,7 +499,7 @@ If we want to get the raw response data, we can do that using :ref:`async_respon
 
 .. _passing_data_to_request_handler:
 
-Passing Data to the Request Handler
+Passing data to the request handler
 -----------------------------------
 
 Given that the response for an asynchronous HTTP request is processed in a separate SmartApp or Device Handler execution, we may need a way to share data between when we make the request, and when the response handler is called.
@@ -531,11 +531,11 @@ Rather than store such data in :ref:`State <storing-data>`, we can pass a map of
 
 .. _async_http_supported_methods:
 
-Available Methods
+Available methods
 -----------------
 
 The following methods are available on the ``asynchttp_v1`` object.
-The HTTP request method will match the name of the ``asynchttp_v1`` method - see the reference documentation for more details on each method.
+The HTTP request method will match the name of the ``asynchttp_v1`` method--see the reference documentation for more details on each method.
 
 ========= ======
 HTTP Verb Method
@@ -552,7 +552,7 @@ HEAD      :ref:`asynchttp_v1.head(String callbackMethod, Map params, Map data = 
 
 .. _async_http_limits:
 
-Host, Timeout, Response, and Data Size Limits
+Host, timeout, response, and data size limits
 ---------------------------------------------
 
 .. _async_http_blacklisting:
@@ -596,7 +596,7 @@ If this limit is exceeded, an ``IllegalArgumentException`` will be thrown when m
 
 ----
 
-Using Asynchronous HTTP in Parent-Child Relationships
+Using asynchronous HTTP in parent-child relationships
 -----------------------------------------------------
 
 When making an asynchronous HTTP request, the associated response handler method will be called on the SmartApp that made the request.
@@ -608,7 +608,7 @@ For example, a child SmartApp or Device Handler can call a method on its parent 
 
 .. _async_http_when_to_use:
 
-When to Use Asynchronous HTTP Requests
+When to use asynchronous HTTP requests
 --------------------------------------
 
 Simply put, prefer asynchronous unless it is proven that synchronous is required.
@@ -623,7 +623,7 @@ The next section discusses some strategies for refactoring synchronous HTTP requ
 
 .. _async_http_refactoring:
 
-Refactoring to Asynchronous HTTP Requests
+Refactoring to asynchronous HTTP requests
 -----------------------------------------
 
 Find high-value opportunities
@@ -714,7 +714,7 @@ A complete SmartApp example illustrating the APIs discussed in this document, al
 
 ----
 
-Related Documentation
+Related documentation
 ---------------------
 
 - :ref:`calling_web_services`

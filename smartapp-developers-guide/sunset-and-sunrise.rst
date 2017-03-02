@@ -8,7 +8,7 @@ We can also get access to sunrise and sunset times using a ZIP code.
 
 ----
 
-Sunrise and Sunset Events
+Sunrise and sunset events
 -------------------------
 
 Using the sunrise and sunset events is the preferred (and simpler) way to take some action at (or around) sunrise or sunset.
@@ -39,8 +39,8 @@ You can subscribe to the events by passing in the location (automatically inject
         ...
     }
 
-Taking action before or after sunrise/sunset times
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Taking action before or after
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you want to take some action a certain amount of time before or after sunset or sunrise, you can use the "sunriseTime" and "sunsetTime" events.
 These events are fired every day around the time of sunset or sunrise, and their value is the *next* sunrise or sunset.
@@ -109,7 +109,7 @@ We want it to run today too, so we use the sunsetTime value of the user's locati
 
 ----
 
-Looking up Sunrise or Sunset Directly
+Looking up sunrise or sunset directly
 -------------------------------------
 
 SmartApps can use the provided :ref:`smartapp_get_sunrise_and_sunset` method to get the sunrise and sunset time.
@@ -135,8 +135,8 @@ The return value is a map in the following form:
 
 ----
 
-Polling for Sunrise/Sunset
---------------------------
+Polling for sunrise or sunset
+-----------------------------
 
 You may have seen some SmartApp code that runs a task sometime after midnight (usually in a method called "astroCheck") and calls a third party weather API to get the sunrise/sunset times. This is strongly discouraged now; it is much more efficient to use location events as they do not rely on third party services.
 

@@ -135,7 +135,7 @@ You will now be able to commit changes made in the IDE to this repository, and u
 
 .. _github_repo_structure:
 
-Repository Structure
+Repository structure
 --------------------
 
 The repository is organized by type (SmartApps or Device Handlers) and namespace.
@@ -160,7 +160,7 @@ This namespace will be used in the directory structure as shown above.
 
 .. _github_ide_tour:
 
-GitHub Integration IDE Tour
+GitHub integration IDE tour
 ---------------------------
 
 Color-coded names
@@ -241,7 +241,7 @@ This is where you can find information about the repository and branch integrate
 
 .. _github_how_to:
 
-How-To
+How to
 ------
 
 Add files from repository to the IDE
@@ -249,9 +249,9 @@ Add files from repository to the IDE
 
 To add files from your forked SmartThingsPublic repository into the IDE, follow these steps:
 
-**Step 1 - Navigate to the *My SmartApps* or *My device handlers* page in the IDE**
+**Step 1 - Navigate to the *My SmartApps* or *My Device Handlers* page in the IDE**
 
-The files available to add to the IDE vary depending upon the context. If you want to add SmartApps to your IDE, navigate to the *My SmartApps* page. If you want to add device handlers, navigate to the *My device handlers*.
+The files available to add to the IDE vary depending upon the context. If you want to add SmartApps to your IDE, navigate to the *My SmartApps* page. If you want to add Device Handlers, navigate to the *My Device Handlers*.
 
 **Step 2 - Update from Repo**
 
@@ -267,7 +267,7 @@ The IDE will now have the files you selected.
 
 .. _how_to_get_st_latest:
 
-Get Latest Code from SmartThingsPublic Repository
+Get latest code from SmartThingsPublic repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
@@ -306,7 +306,7 @@ In the resulting wizard, check the box next to any of the files you want to upda
 
 The files you chose to update are now updated in the IDE.
 
-Commit Changes in the IDE
+Commit changes in the IDE
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To commit changes to a SmartApp or device handler, whether it is a new file or already exists in the repository, Click on the *Commit Changes* button on the *My SmartApps* or *My device handlers* and select the repository you want to commit to.
@@ -317,7 +317,7 @@ This will make a commit in your fork.
 
 .. _how_to_sync_clone:
 
-Keep Your Cloned Repo in Sync with Origin
+Keep your cloned repo in sync with origin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you cloned your forked repository to your local machine, you will want to keep it in sync with your remote forked repository in GitHub.
@@ -340,7 +340,7 @@ Type ``git merge origin/master`` (substitute ``master`` for a different branch, 
 
 .. _github_best_practices:
 
-Best Practices
+Best practices
 --------------
 
 Sync with upstream repository frequently
@@ -382,7 +382,7 @@ I think I found a bug. How do I report it?
 
 .. _github_integration_help:
 
-Getting Help
+Getting help
 ------------
 
 Here are some links for getting help working with Git and GitHub:

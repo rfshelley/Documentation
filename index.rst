@@ -119,5 +119,5 @@ SmartThings Developer Documentation
    :maxdepth: 1
    :caption: Misc
 
-   sept-2015-faq
    contributing/index
+   sept-2015-faq

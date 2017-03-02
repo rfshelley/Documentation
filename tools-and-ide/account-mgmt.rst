@@ -60,14 +60,14 @@ You can click on the name to be taken to the editor, where you can view and modi
 
 ----
 
-Publication Requests
+Publication requests
 --------------------
 
 *My Publication Requests* will show all your publication requests for submissions to the SmartThings catalog, along with the publication request status.
 
 ----
 
-Live Logging
+Live logging
 ------------
 
 *Live Logging* will show a live logging view for your SmartThings account.

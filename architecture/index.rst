@@ -18,7 +18,7 @@ This allows you to develop an application for a type of device, regardless of th
 All of the code that developers can write on our platform is written in Groovy, which is a dynamic, object-oriented language built for the Java platform.
 You can learn more about Groovy on the :ref:`groovy-basics` page.
 
-Big Picture
+Big picture
 -----------
 
 .. TODO: I think we need a nicer looking picture. (Jesse O'Neill-Oine)
@@ -56,7 +56,7 @@ This allows for certain automations to continue, even without AC power.
 It also ships with USB ports and is Bluetooth Low Energy capable.
 While not active at launch, this allows for greater expansion in the future without requiring new hardware.
 
-Connectivity Management
+Connectivity management
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Connectivity Management is the layer that connects your SmartThings Hub, the client devices (mobile phones) to SmartThings servers and to the cloud as a whole.
@@ -67,7 +67,7 @@ The Connectivity Management layer is comprised of:
 
 These are the highways by which your messages are sent to the internet.
 
-Device Handler Execution
+Device Handler execution
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 The SmartThings system determines what type of device you are using based on Device Handlers.
@@ -75,14 +75,14 @@ Once the Device Handler is selected, the incoming messages are parsed by that pa
 The input to the Device Handler is a set of device-specific messages, and the output of the Device Handler is normalized SmartThings events.
 Note that one message can lead to many SmartThings events.
 
-Subscription Management
+Subscription management
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 When events are created in the SmartThings platform, they don't inherently do anything besides publish that they've happened.
 Instead of events triggering change, SmartApps are configured with subscriptions that listen for defined events.
 The purpose of the subscription management layer is to match up events that are triggered by the Device Handlers with the SmartApp that is using them.
 
-SmartApp Execution
+SmartApp execution
 ^^^^^^^^^^^^^^^^^^
 
 The SmartApp is run when triggered either via subscriptions, or via external calls to SmartApp endpoints, or by scheduled methods.
@@ -98,10 +98,10 @@ You have full control of the configuration, including editing, adding, removing,
 To create, you write code within the IDE for SmartApps and Device Handlers.
 SmartThings also has an integrated simulator that allows you to simulate any devices, so it's not required to own the devices you develop for.
 
-Important Concepts
+Important concepts
 ------------------
 
-Asynchronous and Eventually Consistent Programming
+Asynchronous and eventually consistent programming
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When dealing with the physical graph, i.e., a digital representation of the physical things connected around us, there will always be a delay between when you request something to happen and when it actually happens.
@@ -142,7 +142,7 @@ Accounts are the top-level container that represents the SmartThings ‘customer
 Accounts contain only Locations and no other types of
 objects.
 
-Locations and Users
+Locations and users
 ^^^^^^^^^^^^^^^^^^^
 
 Locations are meant to represent a geolocation such as “Home” or “Office”.
@@ -160,7 +160,7 @@ Further, nesting of groups is not currently supported.
 
 ----
 
-Capability Taxonomy
+Capability taxonomy
 -------------------
 
 Capabilities represent the common taxonomy that allows SmartThings platform to link SmartApps with Device Handlers.
@@ -171,7 +171,7 @@ The :ref:`capabilities_taxonomy` is evolving and is heavily influenced by existi
 Capabilities themselves may be decomposed into both ‘Actions’ or ‘Commands’ (these are synonymous), and Attributes.
 Actions represent ways in which you can control or actuate the device, whereas Attributes represent state information or properties of the device.
 
-Attributes and Events
+Attributes and events
 ^^^^^^^^^^^^^^^^^^^^^
 
 Attributes represent the various properties or characteristics of a device.
@@ -187,13 +187,13 @@ A capability is supported by a specific set of commands.
 For example, the ‘Switch’ capability has two required commands: ‘On’ and ‘Off’.
 When a device supports a specific capability, it must generally support all of the commands required of that capability.
 
-Custom Capabilities
+Custom capabilities
 ^^^^^^^^^^^^^^^^^^^
 
 We do not currently support creating custom capabilities.
 You can, however, create a device-type handler that exposes custom commands or attributes.
 
-SmartThings Cloud
+SmartThings cloud
 -----------------
 
 The SmartThings platform assumes a "Cloud First” approach.
@@ -221,17 +221,17 @@ These devices may not be connected to a SmartThings Hub, and instead are directl
 
 Put simply, if there is no Hub, then the SmartApps layer must run in the cloud!
 
-**Scenario: SmartApps May Run Across both Cloud and Hub Connected Devices**
+**Scenario: SmartApps may run across both cloud- and Hub-connected devices**
 
 As a corollary to the first point above, since there are use cases where devices are not hub-connected, SmartApps might be installed to use one device that is hub-connected, and another device that is cloud-connected, all in the same app.
 In this case, the SmartApp needs to run in the cloud.
 
-**Scenario: There may be Multiple Hubs**
+**Scenario: There may be multiple Hubs**
 
 While the mesh network standards for ZigBee and Z-Wave generally eliminate the need for multiple SmartThings Hubs, we didn’t want to exclude this as a valid deployment configuration for large homes or even business applications of our technology.
 In the multi-hub case, SmartApps that use multiple devices that are split across hubs will run in the cloud in order to simplify the complexity of application deployment.
 
-**Scenario: External Service Integration**
+**Scenario: External service integration**
 
 SmartApps may call external web services.
 Calling them from SmartThings cloud reduces risk as it allows SmartThings to easily monitor for errors and ensure the security and privacy of the users.
@@ -268,7 +268,7 @@ Before starting your development, you must note that:
 
     If for some reason you are not seeing your hub in the IDE, then from *My Locations* page select the location and it will prompt you to log into correct shard where you can see your hub.
 
-Consequences of Sharding
+Consequences of sharding
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 In practice, some consequences of sharding are:

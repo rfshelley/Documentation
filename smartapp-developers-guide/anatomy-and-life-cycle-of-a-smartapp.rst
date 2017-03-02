@@ -1,7 +1,7 @@
 .. _anatomy-and-lifecycle-of-a-smartapp:
 
-Anatomy & Life-Cycle of a SmartApp
-==================================
+Anatomy and Life Cycle of a SmartApp
+====================================
 
 SmartApps are applications that allow users to tap into the capabilities of
 their devices to automate their lives.
@@ -15,7 +15,7 @@ Types of SmartApps
 Generally speaking, there are three different kinds of SmartApps: *Event-Handlers*, *Solution Modules*, and *Service Managers*.
 If you are familiar with back-end web development, then you will be more than capable of developing SmartApps.
 
-Event-Handler SmartApps
+Event Handler SmartApps
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Event Handler SmartApps are the most common apps developed by our
@@ -55,7 +55,7 @@ Manager SmartApp that is installed when pairing with a Sonos device.
 
 ----
 
-SmartApp Structure
+SmartApp structure
 ------------------
 
 SmartApps take the form of a single `Groovy <http://groovy.codehaus.org/>`__ script.
@@ -76,7 +76,7 @@ Preferences
 The *preferences* section is responsible for defining the screens that appear in the mobile app when a SmartApp is installed or updated.
 These screens allow the user to specify which devices the SmartApp interacts with along with other configuration options that affect its behavior.
 
-Pre-defined Callbacks
+Pre-defined callbacks
 ^^^^^^^^^^^^^^^^^^^^^
 
 The following methods, if present, are automatically called at various times during the lifecycle of a SmartApp:
@@ -101,7 +101,7 @@ Event handler methods must have a single argument, which contains the
 
 ----
 
-SmartApp Execution
+SmartApp execution
 ------------------
 
 SmartApps aren't always running.
@@ -124,7 +124,7 @@ SmartApps execute when any of the following types of events occur:
 
 ----
 
-Device Preferences
+Device preferences
 ------------------
 
 The most common type of input in the preferences section specifies what kind of devices a SmartApp works with.
@@ -147,7 +147,7 @@ You can find more information about SmartApp preferences `here <preferences-and-
 
 ----
 
-Event Subscriptions
+Event subscriptions
 -------------------
 
 Subscriptions allow a SmartApp to listen for events from devices, or from a location, or from the SmartApp tile in the mobile UI.
@@ -176,7 +176,7 @@ You can learn more about subscribing to device events in the :ref:`events_and_su
 
 ----
 
-SmartApp Sandboxing
+SmartApp sandboxing
 -------------------
 
 SmartApps are developed in a sandboxed environment.
@@ -185,7 +185,7 @@ We have :ref:`documented <groovy-for-smartthings>` the main ways this should aff
 
 ----
 
-Execution Location
+Execution location
 ------------------
 
 With the original SmartThings Hub, all SmartApps execute in the SmartThings cloud.

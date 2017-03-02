@@ -21,7 +21,7 @@ Let's begin with configuring the preferences.
 
 ----
 
-SmartApp Preferences
+SmartApp preferences
 --------------------
 
 To configure the Bon Voyage app, we will want to gather the following information
@@ -87,7 +87,7 @@ You can read more about sending notifications in a SmartApp in the :ref:`smartap
 
 ----
 
-Monitor and React
+Monitor and react
 -----------------
 
 Now that we have gathered the input we need from the user, we need to listen
@@ -277,7 +277,7 @@ When this method is called, we need to call the ``unsubscribe()`` method, and th
 
 ----
 
-Related Documentation
+Related documentation
 ---------------------
 
 - :ref:`prefs_and_settings`
@@ -289,7 +289,7 @@ Related Documentation
 
 ----
 
-Complete Source Code
+Complete source code
 --------------------
 
 The complete source code for this SmartApp can be found in the SmartThingsPublic GitHub repository `here <https://github.com/SmartThingsCommunity/SmartThingsPublic/blob/master/smartapps/smartthings/bon-voyage.src/bon-voyage.groovy>`__.

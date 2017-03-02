@@ -11,7 +11,7 @@ The SmartThings editor and simulator allows you to create, edit, and test SmartA
 
 ----
 
-Creating a New SmartApp
+Creating a new SmartApp
 -----------------------
 
 To create a new SmartApp, click the *New SmartApp* button from the *My SmartApps* page.
@@ -55,7 +55,7 @@ There are three different tabs on the *New Device Handler* page that allow you t
 
 ----
 
-Using the Editor
+Using the editor
 ----------------
 
 The SmartThings web editor allows you to edit code, and provides syntax highlighting for easy code readability.

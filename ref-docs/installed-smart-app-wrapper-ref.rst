@@ -136,19 +136,11 @@ Gets a list of child devices associated with this SmartApp.
 
 .. code-block:: groovy
 
-    // When uninstalling a SmartApp, remove all devices created.
-    // This is most likely used with the connect app type architecture.
-    def uninstalled() {
-        removeChildDevices(app.childDevices)
-    }
+    def children = app.getChildDevices()
+    log.debug "SmartApp with id $app.id has ${children.size()} child devices"
 
-    private removeChildDevices(delete) {
-	    log.debug "deleting ${delete.size()} dropcams"
-	    delete.each {
-		    state.suppressDelete[it.deviceNetworkId] = true
-		    deleteChildDevice(it.deviceNetworkId)
-		    state.suppressDelete.remove(it.deviceNetworkId)
-	    }
+    children.each { child ->
+        log.debug "child device id $child.id with label $child.label"
     }
 
 ----

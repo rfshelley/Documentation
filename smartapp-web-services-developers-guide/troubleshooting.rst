@@ -17,7 +17,7 @@ Here are some general tips and strategies to help you be successful:
 
 ----
 
-Errors During Installation
+Errors during installation
 --------------------------
 
 When choosing a location and selecting devices to authorize, there are some common errors that may occur.

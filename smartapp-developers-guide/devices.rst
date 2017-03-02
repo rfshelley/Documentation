@@ -9,7 +9,7 @@ We often need to get information about a specific device (is this switch on?), o
 
 ----
 
-Device Overview
+Device overview
 ---------------
 
 Devices are the "things" that SmartApps interact with.
@@ -24,7 +24,7 @@ We want to write an app that works with any device that supports the switch capa
 
 ----
 
-Preferences - Selecting the Devices
+Preferences--selecting the devices
 -----------------------------------
 
 To allow the user to select devices that support a given capability, we use the preferences input element:
@@ -46,7 +46,7 @@ The "Preferences Reference" column tells you what to use in your preferences for
 
 ----
 
-Interacting with Devices
+Interacting with devices
 ------------------------
 
 After you have declared the devices your SmartApp needs to interact with, a Device object instance will be available in your SmartApp, with the name that you provided.
@@ -65,7 +65,7 @@ After you have declared the devices your SmartApp needs to interact with, a Devi
 
 ----
 
-Device Attributes
+Device attributes
 -----------------
 
 Attributes represent the state of a device. A device that supports the "temperatureMeasurement" capability has a "temperature" attribute, for example.
@@ -76,7 +76,7 @@ Attribute data is stored in the SmartThings Cloud and updated when the device re
 
 ----
 
-Device Commands
+Device commands
 ---------------
 
 Devices may expose one or many commands.
@@ -89,7 +89,7 @@ A humidity sensor has nothing to physically actuate, for example.
 
 ----
 
-Getting Device Current Values
+Getting device current values
 -----------------------------
 
 Information about the most recently reported device attribute state can be retrieved in two ways:
@@ -150,7 +150,7 @@ These can be used interchangeably; they all do the same thing.
 
 ----
 
-Querying Event History
+Querying event history
 ----------------------
 
 To get a list of events in reverse chronological order (newest first), use the ``events()`` method:
@@ -190,7 +190,7 @@ Refer to the full :ref:`device_ref` API documentation for more information.
 
 ----
 
-Sending Commands
+Sending commands
 ----------------
 
 SmartApps often need to send commands to a device - tell a switch to turn on, or a lock to unlock, for example.
@@ -222,7 +222,7 @@ All commands can take an optional map parameter, as the last argument, to specif
 
 ----
 
-Interacting with Multiple Devices
+Interacting with multiple devices
 ---------------------------------
 
 If you specified ``multiple:true`` in your device preferences, the user may have selected more than one device.
@@ -269,7 +269,7 @@ Here's a simple example of getting all switch state values and logging the switc
 
 ----
 
-See Also
+See also
 --------
 
  - :ref:`capabilities_taxonomy`

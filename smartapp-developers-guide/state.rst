@@ -1,7 +1,7 @@
 .. _storing-data:
 
-State - Storing Data
-====================
+Storing Data With State
+=======================
 
 SmartApps and Device Handlers execute in response to various events or schedules; they are not continuously running.
 Since each execution is executed independently, it has no information regarding previous executions.
@@ -21,7 +21,7 @@ Device Handlers can use the built-in ``state`` object, just as SmartApps can, bu
 
 ----
 
-Quick Example
+Quick example
 -------------
 
 Consider this simple example that keeps track of how many time a switch is turned on:
@@ -64,7 +64,7 @@ With this information, you can make the best use of State (and Atomic State) and
 
 .. _state_atomicState_overview:
 
-State and Atomic State Overview
+State and Atomic State overview
 -------------------------------
 
 There are two objects injected into every SmartApp to persist and retrieve data across executions: ``state`` and ``atomicState`` (Device Handlers only have ``state`` available, but an understanding of how ``state`` works is still important for Device Handler developers).
@@ -82,7 +82,7 @@ Atomic State:
 - Atomic State is not an implementation of ``java.util.Map``, so working with it is not as feature-rich as State.
 - Modifications (additional, removal, updating) to Atomic State within an execution are persisted to external storage *more or less immediately*. This incurs a performance penalty when compared to State.
 
-Persistence Model
+Persistence model
 -----------------
 
 Both State and Atomic State use a database table to store values.
@@ -113,7 +113,7 @@ Installed SmartApp ID   Name       Value
 
 .. _state_how_it_works:
 
-How State Works
+How State works
 ---------------
 
 All SmartApps and Device Handlers have available to them a ``state`` object (it is a map) to persist data between executions.
@@ -133,7 +133,7 @@ This is summarized in the following diagram:
 
 .. _state_potential_race_conditions:
 
-State and Potential Race Conditions
+State and potential race conditions
 -----------------------------------
 
 Since ``state`` is initialized from persistent storage when a SmartApp executes, and is written to storage only when the application is done executing, there is the possibility that another execution *could* happen within that time window, and cause the values stored in ``state`` to appear inconsistent.
@@ -167,7 +167,7 @@ Before using Atomic State, you should read about :ref:`how to choose between Sta
 
 .. _how_atomicState_works:
 
-How Atomic State Works
+How Atomic State works
 ----------------------
 
 In addition to ``state``, SmartApps also available to them the object ``atomicState``, which operates like ``state`` with two notable differences:
@@ -206,7 +206,7 @@ You may need to use Atomic State if code that updates a value in State may execu
 
 .. _state_what_can_be_stored:
 
-What Can Be Stored in State and Atomic State
+What can be stored in State and Atomic State
 --------------------------------------------
 
 ``state`` and ``atomicState`` values are stored as a JSON string by SmartThings.
@@ -306,7 +306,7 @@ If you need to store time information, consider using an epoch time stamp, conve
 
 ----
 
-Working with the ``state`` Object
+Working with the ``state`` object
 ---------------------------------
 
 ``state`` is an implementation of ``java.util.Map``.
@@ -412,7 +412,7 @@ Working with collections in ``state`` is straightforward:
 
 ----
 
-Working with the ``atomicState`` Object
+Working with the ``atomicState`` object
 ---------------------------------------
 
 For simple use cases, working with Atomic State is just like working with State - you can assign and retrieve values just as with State.
@@ -500,7 +500,7 @@ Here's an example:
 
 .. _state_size_limit:
 
-Storage Size Limits
+Storage size limits
 -------------------
 
 The contents of State and Atomic State are limited to 100,000 characters when serialized to JSON.
@@ -528,7 +528,7 @@ When the character limit has been exceeded, a ``physicalgraph.exception.StateCha
 
 ----
 
-State in Parent-Child Relationships
+State in parent-child relationships
 -----------------------------------
 
 If you are attempting to access the State or Atomic State of a parent or child relationship, you may encounter a ``NullPointerException``.

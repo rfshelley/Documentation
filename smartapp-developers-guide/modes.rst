@@ -21,7 +21,7 @@ Users can also create their own modes for each location.
 
 ----
 
-Getting the Current Mode
+Getting the current Mode
 ------------------------
 
 You can get the current mode by using the ``mode`` or ``currentMode`` property on the ``location`` in a SmartApp:
@@ -65,7 +65,7 @@ These methods will raise an error if the mode specified does not exist for the l
 
 ----
 
-Allowing Users to Select Modes
+Allowing users to select Modes
 ------------------------------
 
 In the SmartApp ``preferences`` block, you can specify that the user select a mode by using the ``"mode"`` input type:
@@ -88,7 +88,7 @@ You can learn more about the various ways to allow a user to select a mode :ref:
 
 ----
 
-Mode Events
+Mode events
 -----------
 
 You can listen for a mode change by subscribing to the ``"mode"`` on the ``location`` object:
@@ -167,7 +167,7 @@ This ensures that we don't try and set the mode to one that does not exist for t
 
 ----
 
-Further Reading
+Further reading
 ---------------
 
 - :ref:`Mode Input <mode_pref>`
