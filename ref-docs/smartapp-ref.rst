@@ -1254,7 +1254,7 @@ Returns a HTTP response to the calling client with the options specified.
 .. _smartapp_revoke_access_token:
 
 revokeAccessToken()
-------------------
+-------------------
 
 Revokes the access token created with :ref:`smartapp_create_access_token` for this installed SmartApp.
 
