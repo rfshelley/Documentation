@@ -107,6 +107,84 @@ Here it is in reStructuredText:
 
     Go to the \*Simulator* menu, and click on \*Browse SmartApp Templates* in the dropdown list.
 
+----
+
+
+.. _list_elements:
+
+List elements
+-------------
+
+Always start a list segment with a heading and a colon.
+
+**Example:**
+    
+    To publish a SmartApp or a Device Handler for yourself, follow these steps:
+
+    - Make sure that you are in the proper Location.
+    - From your SmartApp or Device Handler view, click on *Publish* button. Then click the *For Me* option. 
+
+----
+
+If it is a complete sentence, always end the list element, numbered or unordered, with a period. 
+
+.. note::
+
+    This applies also for a list element that has multiple sentences.
+
+**Example:**
+
+    To publish a SmartApp or a Device Handler for yourself, follow these steps:
+
+    - Make sure that you are in the proper Location.
+    - From your SmartApp or Device Handler view, click on Publish button. Then click the For Me option. 
+
+----
+
+If it is an incomplete sentence, do not end the list element with a period.
+
+**Example:** 
+
+    When you finish this tutorial, you will know: 
+
+    - Key components of a SmartApp
+    - Features of IDE
+    - Controlling devices
+
+----
+
+Always write a list sentence in the sentence case.
+
+**Example:** 
+
+    - (YES) Make sure that you are in the proper Location.
+    - (NO) Make Sure That You Are In the Proper Location.
+
+----
+
+Avoid more than two levels of lists.
+
+**Example:** 
+
+(YES) SmartThings platform supports various Hub scenarios such as: 
+
+    - There may not be a hub at all
+        - There may be a third-party Hub present
+        - An all-cloud environment with no Hub whatsoever
+    - SmartApps may run across both cloud and Hub connected devices
+    - There may be multiple Hubs
+
+(NO) SmartThings platform supports various Hub scenarios such as: 
+
+    - There may not be a hub at all
+        - There may be a third-party Hub present
+            - Highlight supported third-party Hubs
+    - An all-cloud environment with no Hub whatsoever
+    - SmartApps may run across both cloud and Hub connected devices
+    - There may be multiple Hubs
+
+----
+
 .. _page_structure:
 
 Page structure
