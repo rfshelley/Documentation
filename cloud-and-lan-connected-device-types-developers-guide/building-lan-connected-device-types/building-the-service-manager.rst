@@ -148,14 +148,14 @@ when an HTTP response is issued from the device to the hub, it will fire the **d
 
 .. note:: HubResponse is a class supplied by the SmartThings platform. Here are some pieces of data that are included:
 
-    * **description** - The raw message received by the device connectivity layer
-    * **hubId** - The UUID of the SmartThings hub that received the response
-    * **status** - HTTP status code of the response
-    * **headers** - Map of the HTTP headers of the response
-    * **body** - String of the HTTP response body
-    * **error** - Any error encountered during any automatic parsing of the body as either JSON or XML
-    * **json** - If the HTTP response has a Content-Type header of application/json, the body is automatically parsed as JSON and stored here
-    * **xml** - If the HTTP response has a Content-Type header of text/xml, the body is automatically parsed as XML and stored here
+    * **description** - The raw message received by the device connectivity layer.
+    * **hubId** - The UUID of the SmartThings hub that received the response.
+    * **status** - HTTP status code of the response.
+    * **headers** - Map of the HTTP headers of the response.
+    * **body** - String of the HTTP response body.
+    * **error** - Any error encountered during any automatic parsing of the body as either JSON or XML.
+    * **json** - If the HTTP response has a Content-Type header of application/json, the body is automatically parsed as JSON and stored here.
+    * **xml** - If the HTTP response has a Content-Type header of text/xml, the body is automatically parsed as XML and stored here.
 
 ----
 
