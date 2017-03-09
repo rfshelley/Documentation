@@ -116,7 +116,7 @@ For example, the switch capability defines the attribute "switch", with possible
 In the example above, we get the value of the "switch" attribute by using the "current<attributeName>" property (``currentSwitch``).
 
 Attribute values are set by creating events where the attribute name is the name of the event, and the attribute value is the value of the event.
-This is discussed more in the `Parse and Events documentation <parse.html#parse-events-and-attributes>`__
+This is discussed more in the `Parse and Events documentation <parse.html#parse-events-and-attributes>`__.
 
 Like commands, when a device supports a capability, it is responsible for ensuring that all the capability's attributes are implemented.
 

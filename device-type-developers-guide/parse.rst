@@ -71,7 +71,7 @@ The parameters you can pass to ``createEvent`` are:
 *name* (required)
     String - The name of the event. Typically corresponds to an attribute name of the device-handler's capabilities.
 *value* (required)
-    The value of the event. The value is stored as a String, but you can pass in numbers or other objects. SmartApps will be responsible for parsing the event's value into back to its desired form (e.g., parsing a number from a string)
+    The value of the event. The value is stored as a String, but you can pass in numbers or other objects. SmartApps will be responsible for parsing the event's value into back to its desired form (e.g., parsing a number from a string).
 *descriptionText*
     String - The description of this event. This appears in the mobile application activity feed for the device. If not specified, this will be created using the event name and value.
 *displayed*

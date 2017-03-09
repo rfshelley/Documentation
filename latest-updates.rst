@@ -352,7 +352,7 @@ July 07 2016
 - Added documentation for :doc:`ref-docs/app-state-ref`
 - Added documentation for :doc:`ref-docs/installed-smart-app-wrapper-ref`
 - Added :ref:`clarification <run_api_smartapp_simulator>` that the callable URL for Web Services SmartApps will vary by installed location
-- Updated :ref:`developer_discussions` with the new developer call schedule
+- Updated developer call schedule
 
 ----
 
