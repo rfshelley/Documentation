@@ -130,6 +130,43 @@ The ``parse()`` method may return a map defining the :ref:`event_ref` to create 
 
 ----
 
+.. _addChildDevice_DH_ref:    
+
+addChildDevice()
+----------------
+
+Adds a child device to a Device Handler. An example use is in a composite device Device Handler.
+
+**Signature:**
+    ``DeviceWrapper addChildDevice(String namespace, String typeName, String deviceNetworkId, hubId, Map properties)``
+
+**Throws:**
+    ``UnknownDeviceTypeException``
+
+**Parameters:**
+    `String`_ ``namespace`` - the namespace for the device. Defaults to ``device.deviceTypeDTO.namespace``.
+
+    `String`_ ``typeName`` - the device type name
+
+    `String`_ ``deviceNetworkId`` - the device network id of the device
+
+    ``hubId`` - *(optional)* The hub id. Defaults to ``null``
+
+    `Map`_ ``properties`` *(optional)* - A map with device properties. Available options are:
+
+    ============== ===========
+    Option         Description
+    ============== ===========
+    isComponent    Allowed values are ``true`` and ``false``. When ``true`` hides the device from the Things view and doesn't let it be separately deleted. (Example: This value is ``true`` for the ZooZ ZEN 20 and ``false`` for Hue bridge.)
+    componentName  A way to refer to this particular child. It should be a Java Bean name (i.e. no spaces). It is used to refer to the device in the parent's detail view. This option is only needed when ``isComponent`` is ``true``.
+    componentLabel The plain-english name (or i18n key) to be used by the UX.
+    ============== ===========
+
+**Returns:**
+    ``DeviceWrapper`` - The device that was created.
+
+----
+
 apiServerUrl()
 --------------
 
