@@ -4,6 +4,17 @@
 Latest Updates
 ==============
 
+March 22 2017
+-------------
+
+- Composite Devices are here! Composite Devices allow developers to better model devices through a parent-child relationship between Device Handlers. Check out the :ref:`documentation <composite-devices>` and leverage this new design pattern for your composite devices!
+- SmartThings has a new set of color standards for Device Handler Tiles. The :ref:`tiles_colors` documentation covers all the new color standards.
+- Updates to the :ref:`style_guide` and existing documentation to conform to new guidelines.
+
+`GitHub Release Tag <https://github.com/SmartThingsCommunity/Documentation/releases/tag/22-March-2017>`__
+
+----
+
 March 08 2017
 -------------
 
