@@ -395,6 +395,19 @@ The List of Capabilities provided by this Device.
 
 ----
 
+.. _device_ref_get_device_network_id:
+
+getDeviceNetworkId()
+--------------------
+
+Gets the device network ID for the device.
+
+**Signature:**
+    ``String getDeviceNetworkId()``
+
+**Returns:**
+    `String`_ - the network ID for the device
+
 getDisplayName()
 ----------------
 

@@ -130,21 +130,24 @@ The ``parse()`` method may return a map defining the :ref:`event_ref` to create 
 
 ----
 
-.. _addChildDevice_DH_ref:    
+.. _addChildDevice_DH_ref:
 
 addChildDevice()
 ----------------
 
-Adds a child device to a Device Handler. An example use is in a composite device Device Handler.
+Adds a child device to a Device Handler.
+An example use is in a composite device Device Handler.
+
+A parent may have multiple children, but only one level of children is allowed (i.e., if a device has a parent, it may not have children itself).
+
 
 **Signature:**
+    ``DeviceWrapper addChildDevice(String typeName, String deviceNetworkId, hubId, Map properties)``
+
     ``DeviceWrapper addChildDevice(String namespace, String typeName, String deviceNetworkId, hubId, Map properties)``
 
-**Throws:**
-    ``UnknownDeviceTypeException``
-
 **Parameters:**
-    `String`_ ``namespace`` - the namespace for the device. Defaults to ``device.deviceTypeDTO.namespace``.
+    `String`_ ``namespace`` - the namespace for the device. If not specified, defaults to the namespace of the current Device Handler executing the call.
 
     `String`_ ``typeName`` - the device type name
 
@@ -160,10 +163,39 @@ Adds a child device to a Device Handler. An example use is in a composite device
     isComponent    Allowed values are ``true`` and ``false``. When ``true`` hides the device from the Things view and doesn't let it be separately deleted. (Example: This value is ``true`` for the ZooZ ZEN 20 and ``false`` for Hue bridge.)
     componentName  A way to refer to this particular child. It should be a Java Bean name (i.e. no spaces). It is used to refer to the device in the parent's detail view. This option is only needed when ``isComponent`` is ``true``.
     componentLabel The plain-english name (or i18n key) to be used by the UX.
+    completedSetup Specify ``true`` to complete the setup for the child device; ``false`` to have the user complete the installation. It should be ``true`` if ``isComponent`` is true. Defaults to ``false``.
+    label          The label for the device.
     ============== ===========
 
 **Returns:**
-    ``DeviceWrapper`` - The device that was created.
+    :ref:`device_ref` - The device that was created.
+
+**Throws:**
+    ``UnknownDeviceTypeException`` - If a Device Handler with the specified name and namespace is not found.
+
+    ``IllegalArgumentException`` - If the ``deviceNetworkId`` is not specified.
+
+    ``ValidationException`` - If the this device already has a parent.
+
+**Example:**
+
+.. code-block:: groovy
+
+    // on installation, create child devices
+    def installed() {
+        createChildDevices()
+    }
+
+    def createChildDevices() {
+
+        // This device (power strip) has five outlets
+        for (i in 1..5) {
+            // can omit namespace (first arg) if it is the same as this device
+            addChildDevice("smartthings", "Zooz Power Strip Outlet", "${device.deviceNetworkId}-ep${i}", null,
+    				[completedSetup: true, label: "${device.displayName} (CH${i})",
+    				 isComponent: true, componentName: "ch$i", componentLabel: "Channel $i"])
+        }
+    }
 
 ----
 
@@ -597,6 +629,32 @@ Returns the URL of the server where this Device Handler can be reached for API c
 
 **Returns:**
     `String`_ - the URL of the server where this Device Handler can be reached.
+
+----
+
+.. device_handler_ref_get_child_devices:
+
+getChildDevices()
+-----------------
+
+Gets a list of all child devices for this device.
+
+**Signature:**
+    ``List<ChildDeviceWrapper> getChildDevices()``
+
+**Returns:**
+    `List`_ <:ref:`device_ref`> - a list of child devices for this device
+
+**Example:**
+
+.. code-block:: groovy
+
+    def children = getChildDevices()
+
+    log.debug "device has ${children.size()} children"
+    children.each { child ->
+        log.debug "child ${child.displayName} has deviceNetworkId ${child.deviceNetworkId}"
+    }
 
 ----
 

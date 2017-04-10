@@ -60,7 +60,7 @@ For example, in the Device Handler of the Zooz ZEN20 Z-Wave Power Strip composit
 		state.oldLabel = device.label
 		// Add child devices for all five outlets of Zooz Power Strip
 		for (i in 1..5) {
-		addChildDevice("ZooZ Power Strip Outlet", "${device.deviceNetworkId}-${i}", null,[completedSetup: true, label: "${device.displayName} (CH${i})", isComponent: true, componentName: "ch$i", componentLabel: "Channel $i"])
+    		addChildDevice("ZooZ Power Strip Outlet", "${device.deviceNetworkId}-${i}", null,[completedSetup: true, label: "${device.displayName} (CH${i})", isComponent: true, componentName: "ch$i", componentLabel: "Channel $i"])
 		}
 	}
 
@@ -103,12 +103,12 @@ Next, the below Device Handler code sets up the *outlet* of the Zooz ZEN20 Z-Wav
 		parent.childOff(device.deviceNetworkId)
 	}
 
-In the above example, the method calls, ``parent.childOn(device.deviceNetworkId)`` and ``parent.childOff(device.deviceNetworkId)``, are the means of communication between the parent and the child instances of this composite device. 
+In the above example, the method calls, ``parent.childOn(device.deviceNetworkId)`` and ``parent.childOff(device.deviceNetworkId)``, are the means of communication between the parent and the child instances of this composite device.
 
 Deleting a Composite Device
 ---------------------------
 
-Deleting a composite parent device will delete all children devices. 
+Deleting a composite parent device will delete all children devices.
 For example, deleting the Power Strip itself will delete its outlets as devices from the SmartThings platform.
 
 SmartApps can be configured to control individual outlets as well as the entire power strip.
@@ -118,16 +118,14 @@ If you try to delete a composite device from your SmartThings mobile app, then t
 
 - If the parameter ``isComponent`` is set to ``true``, as shown in the :ref:`composite_device_parent_device_handler` example above, then the device is hidden from the Things view and you will not be presented with the option of deleting child devices individually.
 
-- If the parameter ``isComponent`` is set to ``false``, then you can delete individual child devices. 
+- If the parameter ``isComponent`` is set to ``false``, then you can delete individual child devices.
 
 .. note::
 
 	Note that the following applies for a composite device:
 
-	
+
 
 	- A single SmartApp can control all the components, each independently, sending and receive messages from each component device.
 
 	- A single SmartApp can control all components together in an all-or-nothing fashion.
-
-
