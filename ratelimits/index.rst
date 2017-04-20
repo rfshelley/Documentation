@@ -6,79 +6,68 @@ Rate Limits
 
 Rate limiting ensures that no single SmartApp or Device Handler will consume too many shared resources.
 
-Rate limits apply to SmartApps, Device Handlers, and Web Services SmartApps.
+Rate limits apply to **all** SmartApps and Device Handlers.
 
 -----
 
 SmartApp and Device Handler rate limits
 ---------------------------------------
 
-SmartApps and Device Handlers are monitored for excessive resource utilization on two measures: **Execution Time Limits** and **Execution Count Limits.**
-
-Execution time limits
-^^^^^^^^^^^^^^^^^^^^^
-
-- Methods are limited to a continuous execution time of 20 seconds.
-- SmartApps are limited to a total continuous execution time of 40 seconds.
-- Device Handlers are limited to a total continuous execution time of 40 seconds.
-
-If these limits are exceeded, the current execution will be suspended.
+SmartApps and Device Handlers are monitored for excessive resource utilization on two measures: *Execution count limits* and *Execution time limits*.
 
 Execution count limits
 ^^^^^^^^^^^^^^^^^^^^^^
 
-A SmartApp or a Device Handler is limited to no more than 250 executions in 60 seconds. If the limit of 250 executions is reached in a 60-second time window, no further executions will occur until the next time window. A log entry will be created for the SmartApp or the Device Handler that was rate limited. The count will start over when the current time window closes and the next time window begins.
+SmartApps and Device Handlers are subject to the following execution count limits.
+These limits are per *installed SmartApp or Device Handler*.
 
-Ways to avoid hitting rate limits
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===================== =========== ===========
+Execution count limit Time window Description
+===================== =========== ===========
+250 executions        60 seconds  A maximum of 250 executions per minute is allowed for each installed SmartApp or Device Handler.
+===================== =========== ===========
 
-A common cause for exceeding the 250 executions within 60 seconds limit is excessive subscriptions that might result in an infinite loop of events. For example, subscribing to an “on” and “off” Event and the “on” command triggers the “off” Event and vice versa - leading to a never-ending chain of event handlers being called. It is also possible that a SmartApp that subscribes to a very large number of particularly “chatty” devices may run into this limit. Making sure that your SmartApp subscriptions are not excessive in number will help avoid hitting the rate limit.
+If the limit is exceeded, an error will be displayed in Live Logging, and no further executions for this installed SmartApp or Device Handler will occur until the current 60-second time window expires.
 
-Similarly, a Device Handler may exceed Rate Limit when it sends many commands to one device by receiving a large number of Event subscriptions (if that doesn’t first hit the limit for SmartApps). For example, DLNA players that are extremely chatty, or devices that bind to frequently changing energy/power values may also encounter this limit. Ensure that your Device Handler does not issue too many commands to one single device in a single 60-second time window.
+Execution time limits
+^^^^^^^^^^^^^^^^^^^^^
+
+These execution time limits apply to SmartApps and Device Handlers:
+
+=============================== =====
+What                            Limit
+=============================== =====
+Method execution time           20 seconds
+Total continuous execution time 40 seconds
+=============================== =====
+
+If these limits are exceeded, the current execution will be suspended.
 
 ----
 
 .. _web_services_rate_limiting:
 
-Web services SmartApps rate limits
-----------------------------------
+Web services rate limit headers
+-------------------------------
 
-SmartApps or Device Handlers that expose their web services APIs are limited to receiving 250 requests in a single 60-second time window.
+SmartApps and Device Handlers that expose RESTful APIs are subject to the same rate limits as documented above.
+The SmartThings platform will set three HTTP headers on the response for every inbound API call, so that a client may understand the current rate limit status.
 
-There are various headers available on every request that provide information about the current rate limit limits for a given installed SmartApp or Device Handler. These are discussed further below.
+======================= ===========
+Header                  Description
+======================= ===========
+``X-RateLimit-Limit``   The total enforced rate limit (250)
+``X-RateLimit-Current`` The number of executions within the current rate limit time window, for this installed SmartApp or Device Handler.
+``X-RateLimit-TTL``     The time remaining (in seconds) before the current rate limit window resets, for this installed SmartApp or Device Handler.
+======================= ===========
 
+If the rate limit is exceeded, the following response is sent to the client:
 
-Rate limit headers
-^^^^^^^^^^^^^^^^^^
-
-The SmartThings platform will set three HTTP headers on the response for every inbound API call, so that a client may understand the current rate limiting status:
-
-*X-RateLimit-Limit: 250*
-   The rate limit - in this example, the limit is 250 requests.
-
-*X-RateLimit-Current: 1*
-   The current count of requests for the given time window. In this example, there has been one request within the current rate limit time window.
-
-*X-RateLimit-TTL: 58*
-   The time remaining in the current rate limit window. In this example, there is 58 seconds remaining before the current rate limit window resets.
-
-
-Rate limit HTTP status code
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In addition to the three HTTP headers above, when the rate limit has been exceeded, the HTTP status code of 429 will be sent on the response, as shown below.
-
-
-Rate limit error handling
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The following error may be returned by the SmartThings platform when a Rate Limit is hit:
-
-=========================== =============================================================================================================== =====
-HTTP Response Code          Error Message                                                                                                   Cause
-=========================== =============================================================================================================== =====
-``429 (Too Many Requests)`` {"error": true, "type": "RateLimit", "message": "Please try again later"}                                       The rate limit for this SmartApp installation has been exceeded.
-=========================== =============================================================================================================== =====
+=========================== ===============================================================================================================
+HTTP Response Code          Error Response
+=========================== ===============================================================================================================
+``429 (Too Many Requests)`` ``{"error": true, "type": "RateLimit", "message": "Please try again later"}``
+=========================== ===============================================================================================================
 
 ----
 
@@ -87,10 +76,48 @@ HTTP Response Code          Error Message                                       
 SMS rate limits
 ---------------
 
-No more than 15 SMS messages may be sent to the same number per minute.
+The following limits apply to sending SMS messages:
 
-If this limit is exceeded, no additional SMS messages will be sent until the next minute.
+========================================== ===========
+Limit                                      If exceeded
+========================================== ===========
+15 SMS messages per number, per 60 seconds No additional SMS messages will be sent until the next minute.
+========================================== ===========
 
 .. note::
 
     This limit applies **per number**, not per SmartApp or user.
+
+----
+
+.. _parent_child_count_limit:
+
+Parent-child relationship limit
+-------------------------------
+
+The number of child SmartApps or child devices that a SmartApp or Device Handler may have are subject to the following limits:
+
+=================== ===========
+Maximum child count Description
+=================== ===========
+500                 A SmartApp may have at most a combination of 500 child SmartApps or Devices. A Device Handler may have at most 500 child Devices.
+=================== ===========
+
+If this limit is exceeded, an exception is thrown and will be displayed in Live Logging.
+If initiated from within the mobile app, an error will be seen in the mobile application as well.
+
+----
+
+Avoiding rate limits
+--------------------
+
+While SmartThings rate limits are quite high compared to other service platforms, the event-driven nature of SmartThings can result in SmartApps or Device Handlers that may (unintentionally) reach this limit.
+It is important to reason carefully about your code, think of worst-case scenarios, and monitor Live Logging when testing to reduce the liklihood of being rate limited.
+
+Here are some common pitfalls to watch out for:
+
+- A SmartApp may subscribe to a large number of "chatty" devices, causing the execution limit to be reached. For example, DLNA devices may be particularly chatty, and frequently changing energy/power values may cause the rate limit to be exceeded.
+- Service Manager SmartApps that may be called by their child devices may reach the execution limit, if there are a number of child devices and/or they call the parent in response to frequent events.
+- Synchronous (blocking) HTTP requests may hit the execution time rate limit, depending on the third party response time. Avoid this possibility by using :ref:`async_http_guide`.
+- It's possible to create an infinite loop of events. For example, subscribing to both "on" and "off" events, and the "on" command triggers the "off" event and vice versa - leading to a never-ending chain of event handlers being called.
+- Pay attention to any looping logic around creating child devices or SmartApps. Any error in the looping logic might result in creating too many children, which could encounter the parent-child limit.

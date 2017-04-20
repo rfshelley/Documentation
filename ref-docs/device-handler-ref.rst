@@ -140,6 +140,10 @@ An example use is in a composite device Device Handler.
 
 A parent may have multiple children, but only one level of children is allowed (i.e., if a device has a parent, it may not have children itself).
 
+.. warning::
+
+    A parent may have at most 500 children.
+
 
 **Signature:**
     ``DeviceWrapper addChildDevice(String typeName, String deviceNetworkId, hubId, Map properties)``
@@ -176,6 +180,8 @@ A parent may have multiple children, but only one level of children is allowed (
     ``IllegalArgumentException`` - If the ``deviceNetworkId`` is not specified.
 
     ``ValidationException`` - If the this device already has a parent.
+
+    ``SizeLimitExceededException`` - If this device already has the maximum number of children allowed (500).
 
 **Example:**
 
