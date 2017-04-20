@@ -431,6 +431,7 @@ Tips and best practices
 
 - Think carefully about creating more than one level of parent-to-child relationships, as it may negatively impact usability and create unneeded complications.
 - Sharing ``state`` or ``atomicState`` between parent and child SmartApps is not currently supported.
+- The number of children a SmartApp may have is capped as documented in the :ref:`parent_child_count_limit`. 
 
 ----
 

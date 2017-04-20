@@ -205,6 +205,10 @@ addChildApp()
 
 Adds a child app to a SmartApp.
 
+.. warning::
+
+    A SmartApp may have a maximum of 500 child SmartApps and devices, combined.
+
 **Signature:**
     ``InstalledSmartApp addChildApp(String namespace, String smartAppVersionName, String label, Map properties)``
 
@@ -224,16 +228,28 @@ Adds a child app to a SmartApp.
 **Returns:**
     :ref:`installed_smart_app_wrapper` - The InstalledSmartAppWrapper instance that represents the child SmartApp that was created.
 
+**Throws:**
+    ``IllegalArgumentException`` - If the label is not provided.
+
+    ``NotFoundException`` - If the SmartApp cannot be found.
+
+    ``SizeLimitExceededException`` - If this SmartApp already has the maximum number of children allowed (500).
+
+
 addChildDevice()
 ----------------
 
-Adds a child device to a SmartApp. An example use is in service manager SmartApps.
+Adds a child device to a SmartApp.
+An example use is in Service Manager SmartApps.
+
+.. warning::
+
+    A parent may have at most 500 children.
 
 **Signature:**
-    ``DeviceWrapper addChildDevice(String namespace, String typeName, String deviceNetworkId, hubId, Map properties)``
+    ``DeviceWrapper addChildDevice(String typeName, String deviceNetworkId, hubId, Map properties)``
 
-**Throws:**
-    ``UnknownDeviceTypeException``
+    ``DeviceWrapper addChildDevice(String namespace, String typeName, String deviceNetworkId, hubId, Map properties)``
 
 **Parameters:**
     `String`_ ``namespace`` - the namespace for the device. Defaults to ``installedSmartApp.smartAppVersionDTO.smartAppDTO.namespace``
@@ -247,7 +263,14 @@ Adds a child device to a SmartApp. An example use is in service manager SmartApp
     `Map`_ ``properties`` *(optional)* - A map with device properties.
 
 **Returns:**
-    ``DeviceWrapper`` - The device that was created.
+    :ref:`device_ref` - The device that was created.
+
+**Throws:**
+    ``UnknownDeviceTypeException`` - If a Device Handler with the specified name and namespace is not found.
+
+    ``IllegalArgumentException`` - If the ``deviceNetworkId`` is not specified.
+
+    ``SizeLimitExceededException`` - If this SmartApp already has the maximum number of children allowed (500).
 
 ----
 
@@ -586,7 +609,8 @@ Returns the URL of the server where this SmartApp can be reached for API calls. 
 getChildDevice()
 ----------------
 
-Returns a device based upon the specified device network id. This is mostly used in service manager SmartApps.
+Returns a device based upon the specified device network id.
+This is mostly used in Service Manager SmartApps.
 
 **Signature:**
     ``DeviceWrapper getChildDevice(String deviceNetworkId)``
@@ -602,7 +626,8 @@ Returns a device based upon the specified device network id. This is mostly used
 getChildDevices()
 -----------------
 
-Returns a list of all child devices. An example use would be in service manager SmartApps.
+Returns a list of all child devices.
+An example use would be in Service Manager SmartApps.
 
 **Signature:**
     ``List getChildDevices(Boolean includeVirtualDevices)``

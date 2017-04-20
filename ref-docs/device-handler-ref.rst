@@ -130,21 +130,28 @@ The ``parse()`` method may return a map defining the :ref:`event_ref` to create 
 
 ----
 
-.. _addChildDevice_DH_ref:    
+.. _addChildDevice_DH_ref:
 
 addChildDevice()
 ----------------
 
-Adds a child device to a Device Handler. An example use is in a composite device Device Handler.
+Adds a child device to a Device Handler.
+An example use is in a composite device Device Handler.
+
+A parent may have multiple children, but only one level of children is allowed (i.e., if a device has a parent, it may not have children itself).
+
+.. warning::
+
+    A parent may have at most 500 children.
+
 
 **Signature:**
+    ``DeviceWrapper addChildDevice(String typeName, String deviceNetworkId, hubId, Map properties)``
+
     ``DeviceWrapper addChildDevice(String namespace, String typeName, String deviceNetworkId, hubId, Map properties)``
 
-**Throws:**
-    ``UnknownDeviceTypeException``
-
 **Parameters:**
-    `String`_ ``namespace`` - the namespace for the device. Defaults to ``device.deviceTypeDTO.namespace``.
+    `String`_ ``namespace`` - the namespace for the device. If not specified, defaults to the namespace of the current Device Handler executing the call.
 
     `String`_ ``typeName`` - the device type name
 
@@ -160,10 +167,41 @@ Adds a child device to a Device Handler. An example use is in a composite device
     isComponent    Allowed values are ``true`` and ``false``. When ``true`` hides the device from the Things view and doesn't let it be separately deleted. (Example: This value is ``true`` for the ZooZ ZEN 20 and ``false`` for Hue bridge.)
     componentName  A way to refer to this particular child. It should be a Java Bean name (i.e. no spaces). It is used to refer to the device in the parent's detail view. This option is only needed when ``isComponent`` is ``true``.
     componentLabel The plain-english name (or i18n key) to be used by the UX.
+    completedSetup Specify ``true`` to complete the setup for the child device; ``false`` to have the user complete the installation. It should be ``true`` if ``isComponent`` is true. Defaults to ``false``.
+    label          The label for the device.
     ============== ===========
 
 **Returns:**
-    ``DeviceWrapper`` - The device that was created.
+    :ref:`device_ref` - The device that was created.
+
+**Throws:**
+    ``UnknownDeviceTypeException`` - If a Device Handler with the specified name and namespace is not found.
+
+    ``IllegalArgumentException`` - If the ``deviceNetworkId`` is not specified.
+
+    ``ValidationException`` - If the this device already has a parent.
+
+    ``SizeLimitExceededException`` - If this device already has the maximum number of children allowed (500).
+
+**Example:**
+
+.. code-block:: groovy
+
+    // on installation, create child devices
+    def installed() {
+        createChildDevices()
+    }
+
+    def createChildDevices() {
+
+        // This device (power strip) has five outlets
+        for (i in 1..5) {
+            // can omit namespace (first arg) if it is the same as this device
+            addChildDevice("smartthings", "Zooz Power Strip Outlet", "${device.deviceNetworkId}-ep${i}", null,
+    				[completedSetup: true, label: "${device.displayName} (CH${i})",
+    				 isComponent: true, componentName: "ch$i", componentLabel: "Channel $i"])
+        }
+    }
 
 ----
 
@@ -600,6 +638,32 @@ Returns the URL of the server where this Device Handler can be reached for API c
 
 ----
 
+.. device_handler_ref_get_child_devices:
+
+getChildDevices()
+-----------------
+
+Gets a list of all child devices for this device.
+
+**Signature:**
+    ``List<ChildDeviceWrapper> getChildDevices()``
+
+**Returns:**
+    `List`_ <:ref:`device_ref`> - a list of child devices for this device
+
+**Example:**
+
+.. code-block:: groovy
+
+    def children = getChildDevices()
+
+    log.debug "device has ${children.size()} children"
+    children.each { child ->
+        log.debug "child ${child.displayName} has deviceNetworkId ${child.deviceNetworkId}"
+    }
+
+----
+
 .. _device_handler_ref_get_color_util:
 
 getColorUtil()
@@ -612,6 +676,32 @@ Returns the :ref:`color_util_ref` object.
 
 **Returns:**
     :ref:`color_util_ref`
+
+----
+
+.. _device_handler_ref_get_image:
+
+getImage()
+----------
+
+Returns a `ByteArrayInputStream`_ for the image stored using :ref:`device_handler_ref_store_image` or :ref:`device_handler_ref_store_temp_image` with the specified name.
+
+An exception is thrown if the requested image does not exist for this device.
+
+**Signature:**
+    ``ByteArrayInputStream getImage(String name)``
+
+**Parameters:**
+    `String`_ name - The name of the image to retrieve.
+
+**Returns:**
+    `ByteArrayInputStream`_ - The input stream of bytes for this image.
+
+**Example:**
+
+.. code-block:: groovy
+
+    ByteArrayInputStream imgStream = getImage("some-existing-image-name")
 
 ----
 
@@ -1753,6 +1843,161 @@ The status method is called in the `simulator()`_ method, and populates the sele
 
 ----
 
+.. _device_handler_ref_store_image:
+
+storeImage()
+------------
+
+Stores an image represented by a `ByteArrayInputStream`_ and emits an Event with name "image".
+
+``storeImage()`` is often in used in conjunction with the `carouselTile()`_ and cloud-connected camera devices to store and display images.
+
+JPEG and PNG image formats are supported.
+
+.. note::
+
+    Images stored using ``storeImage()`` are stored for 365 days, after which they will be permanently deleted.
+
+    The ``carouselTile()`` can display images for the past seven days.
+
+**Signature:**
+    ``void storeImage(String name, ByteArrayInputStream is, String contentType = "image/jpeg") throws Exception``
+
+**Parameters:**
+    `String`_ name - The name associated with the image, consisting of alphanumeric, '_', '-', and '.' characters. This name must be unique per device instance, and should not include the file extension.
+
+    `ByteArrayInputStream`_ is - The input stream of bytes representing the image. The total size may not exceed 1 megabyte.
+
+    `String`_ contentType *(optional)* - The content type of the image. Optional, and defaults to ``"image/jpeg"``. Other supported values are ``"image/jpg"`` and ``"image/png"``.
+
+**Throws:**
+    `InvalidParameterException`_ if the name does not solely consist of alphanumeric, '_', '-', and '.' characters.
+
+    `InvalidParameterException`_ if the size of total bytes to be stored exceeds one megabyte.
+
+    `Exception`_ - if the current Device Handler execution is attempting to store more than two images.
+
+**Example:**
+
+.. code-block:: groovy
+
+    def params = [
+    		uri: "http://static.tvtropes.org/pmwiki/pub/images/catsbeard_9105.jpg"
+    	]
+
+    try {
+        httpGet(params) { response ->
+            if (response.status == 200 && response.headers.'Content-Type'.contains("image/jpeg")) {
+                def imageBytes = response.data
+                if (imageBytes) {
+                    state.imgCount = state.imgCount + 1
+                    def name = "test$state.imgCount"
+
+                    // the response data is already a ByteArrayInputStream, no need to convert
+                    try {
+                        storeImage(name, imageBytes)
+                    } catch (e) {
+                        log.error "error storing image: $e"
+                    }
+                }
+            }
+        }
+    } catch (err) {
+        log.error ("Error making request: $err")
+    }
+
+
+----
+
+.. _device_handler_ref_store_temp_image:
+
+storeTemporaryImage()
+---------------------
+
+Transfers an image temporarily stored via a :ref:`hubaction_ref` request to a LAN-connected camera device to longer-lasting storage, and emits an event with name "image".
+Typically used in conjunction with the `carouselTile()`_ to store and display images captured by a camera device.
+
+Only the JPEG image format is supported.
+
+.. note::
+
+    Images stored using ``storeTemporaryImage()`` are stored for 365 days, after which they will be permanently deleted.
+
+    The ``carouselTile()`` can display images for the past seven days.
+
+**Signature:**
+    ``void storeTemporaryImage(String key, String name)``
+
+**Parameters:**
+    `String`_ key - The key for this image, extracted from the response map sent to the `parse()`_ method.
+
+    `String`_ name - The name associated with the image, consisting of alphanumeric, '_', '-', and '.' characters. This name must be unique per device instance, and should not include the file extension.
+
+**Throws:**
+    `InvalidParameterException`_ if the name does not solely consist of alphanumeric, '_', '-', and '.' characters.
+
+**Example:**
+
+.. code-block:: groovy
+
+    // take() command method from the Image Capture capability
+    def take() {
+        def host = getHostAddress()
+        def port = host.split(":")[1]
+
+        def path = "/some/path/"
+
+        def hubAction = new physicalgraph.device.HubAction(
+            method: "GET",
+            path: path,
+            headers: [HOST:host]
+        )
+
+        // outputMsgToS3: true required to store this image temporarily!
+        hubAction.options = [outputMsgToS3:true]
+
+        return hubAction
+    }
+
+    /**
+    * Utility method to get the host addresses
+    */
+    private getHostAddress() {
+        def parts = device.deviceNetworkId.split(":")
+        def ip = convertHexToIP(parts[0])
+        def port = convertHexToInt(parts[1])
+        return ip + ":" + port
+    }
+
+    def parse(String description) {
+
+        def map = stringToMap(description)
+
+        // if the message has the tempImageKey, we know it's a response from
+        // an image stored via the HubAction. Need to move it to longer-lasting
+        // storage with storeTemporaryImage()
+        if (map.tempImageKey) {
+            try {
+                storeTemporaryImage(map.tempImageKey, getPictureName())
+            } catch (Exception e) {
+                log.error e
+            }
+        } else if (map.error) {
+            log.error ("Error: ${map.error}")
+        }
+
+        // parse other messages too
+    }
+
+    /**
+    * Utility method to get a unique picture name
+    */
+    private getPictureName() {
+        return java.util.UUID.randomUUID().toString().replaceAll('-', '')
+    }
+
+----
+
 tiles()
 -------
 
@@ -1877,13 +2122,16 @@ The utility class for parsing and formatting Z-Wave command messages.
 
 .. _BigDecimal: http://docs.oracle.com/javase/7/docs/api/java/math/BigDecimal.html
 .. _Boolean: http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html
+.. _ByteArrayInputStream: https://docs.oracle.com/javase/7/docs/api/java/io/ByteArrayInputStream.html
 .. _Closure: http://docs.groovy-lang.org/latest/html/api/groovy/lang/Closure.html
 .. _Date: http://docs.oracle.com/javase/7/docs/api/java/util/Date.html
-.. _String: http://docs.oracle.com/javase/7/docs/api/java/lang/String.html
-.. _Map: http://docs.oracle.com/javase/7/docs/api/java/util/Map.html
-.. _Integer: https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html
-.. _List: http://docs.oracle.com/javase/7/docs/api/java/util/List.html
-.. _Number: http://docs.oracle.com/javase/7/docs/api/java/lang/Number.html
-.. _Long: https://docs.oracle.com/javase/7/docs/api/java/lang/Long.
-.. _Object: http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
+.. _Exception: https://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html
 .. _HttpResponseDecorator: http://javadox.com/org.codehaus.groovy.modules.http-builder/http-builder/0.6/groovyx/net/http/HttpResponseDecorator.html
+.. _Integer: https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html
+.. _InvalidParameterException: https://docs.oracle.com/javase/7/docs/api/java/security/InvalidParameterException.html
+.. _List: http://docs.oracle.com/javase/7/docs/api/java/util/List.html
+.. _Long: https://docs.oracle.com/javase/7/docs/api/java/lang/Long.html
+.. _Map: http://docs.oracle.com/javase/7/docs/api/java/util/Map.html
+.. _Number: http://docs.oracle.com/javase/7/docs/api/java/lang/Number.html
+.. _Object: http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html
+.. _String: http://docs.oracle.com/javase/7/docs/api/java/lang/String.html

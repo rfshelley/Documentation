@@ -1,3 +1,5 @@
+.. _device_handler_tiles:
+
 =====
 Tiles
 =====
@@ -572,6 +574,8 @@ These values are not controlled by the color control tile, so are not useful.
     Check out the :ref:`tiles_examples` to see it in action!
 
 
+.. _tiles_carousel_tile:
+
 Carousel Tile
 ^^^^^^^^^^^^^
 
@@ -584,7 +588,14 @@ Many of the camera Device Handlers will make use of the ``carouselTile()``.
     carouselTile("cameraDetails", "device.image", width: 3, height: 2) { }
 
 
-.. figure:: ../img/device-types/carouselTile.jpg
+.. image:: ../img/device-types/carouselTile.png
+    :scale: 50
+
+The Carousel Tile displays the ten most recent images captured within the past seven days.
+
+.. note::
+
+    See :ref:`working_with_camera_photos` for more information on working with camera devices.
 
 ----
 
