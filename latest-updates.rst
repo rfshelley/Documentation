@@ -4,6 +4,13 @@
 Latest Updates
 ==============
 
+June 08 2017
+------------
+
+- :ref:`HubAction reference documentation <hubaction_ref>` updated to clarify that ``HOST`` parameter is part of the headers map.
+
+`GitHub Release Tag <https://github.com/SmartThingsCommunity/Documentation/releases/tag/08-June-2017>`__
+
 ----
 
 May 04 2017
@@ -30,6 +37,7 @@ April 20 2017
 - Updated :ref:`Rate Limiting documenation <rate_limits>` with new child SmartApp and Device Handler limits, as well as clarify existing rate limits.
 
 `GitHub Release Tag <https://github.com/SmartThingsCommunity/Documentation/releases/tag/20-April-2017>`__
+
 ----
 
 March 22 2017

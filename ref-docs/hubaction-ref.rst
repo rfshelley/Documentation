@@ -40,8 +40,7 @@ HubAction can also be used in a SmartApp or in a Device Handler to communicate w
 	path 		 Allowed values are any string of the form ``"/somepath"``. Default value is ``"/"``.
 	method 		 Allowed values are ``"POST"``, ``"GET"``, ``"PUT"`` and ``"PATCH"``. Default value is ``"POST"``.
 	protocol 	 Allowed values are ``Protocol.LAN``. Default value is also ``Protocol.LAN``.
-	HOST 		 The ``"IP":"port"`` string of the device.
-	headers 	 A map of HTTP headers. Default values are ``['Accept': '*/*', 'User-Agent': 'Linux UPnP/1.0 SmartThings',]``. If 'Content-Type' is not included, then it is set to ``'application/json'`` if ``params:body`` is a ``Map``; otherwise 'Content-Type' is set to ``'text/xml; charset="utf-8"'``.
+	headers 	 A map of HTTP headers. The ``HOST`` should be the ``"IP":"port"`` string of the device. Default values are ``['Accept': '*/*', 'User-Agent': 'Linux UPnP/1.0 SmartThings',]``. If ``'Content-Type'`` is not included, then it is set to ``'application/json'`` if ``params:body`` is a ``Map``; otherwise ``'Content-Type'`` is set to ``'text/xml; charset="utf-8"'``.
 	query 		 A map of URL query parameters.
 	body 		 Request body.
 	============ ===========
