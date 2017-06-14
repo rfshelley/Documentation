@@ -11,7 +11,7 @@ SmartThings provides custom Z-Wave command objects that represent the standard c
 Parsing Events
 --------------
 
-When Events from Z-Wave devices are passed into your Device hHandler's parse method, they are in an encoded string format.
+When Events from Z-Wave devices are passed into your Device Handler's parse method, they are in an encoded string format.
 The first thing your parse method should do is call ``zwave.parse`` on the description string to convert it to a Z-Wave command object.
 The object's class is one of the subclasses of ``physicalgraph.zwave.Command`` that can be found in the `Z-Wave Command
 Reference <https://graph.api.smartthings.com/ide/doc/zwave-utils.html>`__.
