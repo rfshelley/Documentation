@@ -7,6 +7,7 @@
 		<value name='heat' />
 		<value name='off' />
 	</attribute>
+    <attribute name='supportedThermostatModes' type='JSON_OBJECT'/> -- TODO should this be a string array type
 	<command name='auto' />
 	<command name='cool' />
 	<command name='emergencyHeat' />

@@ -5,6 +5,7 @@
 		<value name='circulate' />
 		<value name='on' />
 	</attribute>
+    <attribute name='supportedThermostatFanModes' type='JSON_OBJECT'/> -- TODO should this be a string array type
 	<command name='fanAuto' />
 	<command name='fanCirculate' />
 	<command name='fanOn' />
