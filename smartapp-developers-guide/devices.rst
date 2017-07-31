@@ -264,7 +264,7 @@ Here's a simple example of getting all switch state values and logging the switc
             switchVal == "on" ? true : false
         }
 
-        log.debug "${onSwitches.size() out of ${switches.size()} switches are on"
+        log.debug "${onSwitches.size()} out of ${switches.size()} switches are on"    
     }
 
 ----
