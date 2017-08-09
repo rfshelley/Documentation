@@ -40,6 +40,7 @@ Capabilities Reference
     COLOR_MAP      ``[hue: 50, saturation: 75]`` The Color Map is a Map specifically for the use of color control. As such, the Map should contain a Hue and a Saturation value.
     JSON_OBJECT                                  A standard JSON object. Device Handlers contain the implementation and thus should be consulted when looking for the JSON object structure.
     DATE                                         A Date, usually represented as a java.util.Date object.
+    BOOLEAN        true, false                   A boolean data type with a value of true or false.
     ============== ============================= ======================================
 
     ----
