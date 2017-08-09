@@ -644,6 +644,20 @@ The list of :ref:`command_ref` s for this Device.
 
 ----
 
+getTypeName()
+---------
+
+The type of the device.  
+
+**Signature:**
+    ``String getTypeName()``
+
+**Returns:**
+    `String`_ - the type of the device.
+
+----
+
+
 hasAttribute()
 --------------
 
