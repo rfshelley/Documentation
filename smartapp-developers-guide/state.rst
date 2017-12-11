@@ -283,7 +283,7 @@ If you were to store a date directly, you would end up with a string representat
 
     def check() {
         def isDate = state.date instanceof Date // -> false
-        def isString = state.date instanceof Date // -> true
+        def isString = state.date instanceof String // -> true
     }
 
 
